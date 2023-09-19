@@ -1,0 +1,17 @@
+
+
+Añadir al elemento que abre o cierra el overlay 
+
+    (click)="isOpen = !isOpen"    ///activa o lo desactiva
+    cdkOverlayOrigin
+    #menuOverlay="cdkOverlayOrigin"    //con #nombre = "cdkOverlayOrigin"
+
+En el ng template
+
+    <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="menuOverlay"   ---detecta el nombre del menu que lo abre
+    [cdkConnectedOverlayOpen]="isOpen"          ---recibe el valor si esta abierto o no
+    >
+    ....
+    </ng-template>

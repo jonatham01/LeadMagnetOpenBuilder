@@ -1,0 +1,27 @@
+En el archivo ts:
+    
+    En el Ts crear o traer la data. En el ejemplo es de tipo Todo[]  
+    
+    Metodo en el txt:
+
+    drop(event: CdkDragDrop<ToDo[]>) {
+        if (event.previousContainer === event.container) {
+        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+        } else {
+        transferArrayItem(
+            event.previousContainer.data,
+            event.container.data,
+            event.previousIndex,
+            event.currentIndex
+        );
+        }
+
+    }
+
+En el archivo html
+
+    En el div que contiene todos los elementos o componentes en que se podra desplazar
+        cdkDropListGroup
+
+    En el div que se hara drag & Drop
+        cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="todos"

@@ -1,0 +1,64 @@
+Instalar tailwind
+
+    npm install -D tailwindcss postcss autoprefixer
+
+    npx tailwindcss init
+
+     npm i @angular/cdk
+    //npm i @angular/cdk@14.2.7
+
+    seguir pasos de https://tailwindcss.com/docs/guides/angular
+
+    En styles
+
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+
+Modificar tamaños del container
+
+    En el tailwind.config:
+
+    container: {
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1024px',
+          '2xl': '1536px',
+        },
+      }
+
+
+FORMS
+
+    npm install -D @tailwindcss/forms
+
+    En el tailwind.config, en los plugins agregar:  
+    require('@tailwindcss/forms')
+
+
+Para importar overlay de materialui
+
+    en el app.module
+    import {OverlayModule} from '@angular/cdk/overlay'
+    añadir en los imports OverlayModule
+
+
+    En styles añadir:  @import '@angular/cdk/overlay-prebuilt.css';
+
+Importar dragandrop
+
+    import { DragDropModule } from '@angular/cdk/drag-drop';
+
+    y en provider  DragDropModule
+
+Font awsome para iconos
+    $ ng add @fortawesome/angular-fontawesome@<version>
+        ng add @fortawesome/angular-fontawesome@0.13x   
+    free brand icons
+
+propiedades html
+    novalidate
+
