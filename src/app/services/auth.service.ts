@@ -41,6 +41,42 @@ export class AuthService {
 
   }
 
+  logout(){ 
+
+    FirebaseAuth.signOut(); 
+
+  }
+
+
+  async signIn(email:string, password:string, displayName:string){
+
+  try{
+
+    const createdUser = await createUserWithEmailAndPassword( FirebaseAuth, email, password );
+
+    const { uid } = createdUser.user;
+
+    if(FirebaseAuth.currentUser){
+
+      await updateProfile( FirebaseAuth.currentUser, { displayName });
+
+    } 
+    
+    this.user.next({uid,displayName,email});
+
+    this.router.navigateByUrl('/admin');
+
+   }
+
+  catch (error:any) {
+
+    return error.message;
+    
+  }
+
+  }
+
+
   
 
 
