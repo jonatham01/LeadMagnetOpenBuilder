@@ -1,12 +1,15 @@
     list-none
 
-    hidden / block
-    absolute / relative
+    absolute / relative / static / sticky / fixed
     w-full  / w-screen / w-96 / w-7/12 / md:w-6/12
     h-full / h-screen
-    m-auto/ space-y-4 /space-x-0
+    m-auto
+    bg-auto / bg-cover / contain
+    bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500
 
-    flex / block
+    hidden/ flex / block
+    space-y-4 /space-x-0
+    divide-gray-100     --a cada item le pone un border botom
     justify-center /justify-between /  justify-around /justify-start / justify-end
     justify-items-stretch / justify-items-start / justify-items-center / justify-items-end
     items-center
@@ -16,7 +19,6 @@
     flex-grow / flex-grow
     flex-shrink-0 / flex-shrink
     flex-shrink-0/  order-first / order-first / order-first
-    divide-gray-100     --a cada item le pone un border botom
 
 
     px-6
@@ -27,12 +29,36 @@
     shadow-none / shadow-lg
 
     text-center 
-    font-bold / font-light
-    text-gray-600 / text-blue-600
-    placeholder-black / placeholder-black
+    after:content-['_↗']   ---añade contenido al texto
     text-base/ text-lg / text-9xl
+    font-bold / font-light
+    text-gray-600 / text-blue-600s
+    break-words / break-words/ break-words  ---corta la palabra en caso de ser muy larga
+    line-clamp-3 / line-clamp-3 
+    leading-normal / leading-relaxed / leading-loose   ---espacio entre lineas
+    subpixel-antialiased / antialiased         ---letras normales y letras en gris
+    list-image-[url(checkmark.png)]
+    whitespace-normal  ---multilinea
 
+    placeholder-black / placeholder-black
+    
     cursor-pointer / cursor-wait /  cursor-text /  cursor-move/ cursor-not-allow /  cursor-default
    
-    bg-auto / bg-cover / contain
-    bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500
+    
+
+
+    float-right / float-left  / float-none
+
+   
+Properties------ Class
+object-bottom    	object-position: bottom;
+object-center       object-position: center;
+object-left	        object-position: left;
+object-left-bottom	object-position: left bottom;
+object-left-top 	object-position: left top;
+object-right	    object-position: right;
+object-right-bottom	object-position: right bottom;
+object-right-top	object-position: right top;
+object-top	        object-position: top;
+​
+Basic usage

@@ -14,12 +14,14 @@ import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgStyle } from '@angular/common';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { BtnComponent } from './components/btn/btn.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    BtnComponent,
     
   ],
   imports: [
