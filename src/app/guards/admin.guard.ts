@@ -1,23 +1,15 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Injectable, inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { AuthService } from './../services/auth.service';
 
-/*
-
-    Cada vez que un usuario  admin visite la url
-    Valida si el usuario esta autenticado como admin
-    De lo contrario lo redirecciona
-    
-*/
-
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
+export class AdminGuard {
 
   constructor(
     private authService: AuthService,
@@ -28,7 +20,6 @@ export class AdminGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-     // console.log(this.authService.user$);
       return this.authService.user$
       .pipe(
         map(user => {
@@ -37,12 +28,6 @@ export class AdminGuard implements CanActivate {
             this.router.navigate(['/login']);
             return false;
           }
-          //if(user?.role === 'admin') {
-          //  return true;} 
-         /* else {
-            this.router.navigate(['/login']);
-            return false;
-          }*/
           else{
             return true
           }
@@ -50,4 +35,8 @@ export class AdminGuard implements CanActivate {
       )
   }
 
+}
+
+export const AuthGuard: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree  => {
+  return inject(AdminGuard).canActivate(next, state);
 }
