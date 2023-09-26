@@ -1,10 +1,11 @@
 
 <div class=" w-full flex flex-col md:flex-row m-0">
 
-    <div class="sm:w-full md:w-5/12 lg:w-4/12 bg-sky-600  flex flex-col p-0 m-0 text-white">
+    <div class="sm:w-full md:w-8/12 lg:w-4/12 bg-sky-600  flex flex-col p-0 m-0 text-white">
 
         <img class=" hidden md:block md:w-full h-min "
-         src="../../../../assets/5553ef310fb0f4a52c8ed204990684da.png" alt="">
+
+         src="../../../../assets/website-design1.jpg" alt="">
 
          <div class="flex flex-col space-y-4 justify-center text-center p-12">
 
@@ -30,24 +31,31 @@
 
         <div class="w-full flex flex-col justify-center items-center bg-white h-full space-y-4 ">
                       
-            <form novalidate class="space-y-4 w-10/12  md:w-5/12">
+            <form novalidate class="space-y-4 w-10/12  md:w-5/12" >
 
 
                 <h1 class="font-bold text-2xl" >Sign in in Open Builder</h1>
 
                 <p class="pb-8 text-gray-800 md:text-gray-500">Enter your identification</p>
 
-                <label for="email">Email</label>
+                <div>
+                    <label for="email" *ngIf="!loginData.emailError">Email</label>
+                    <label for="email" *ngIf="loginData.emailError" class="text-red-700">Enter your Email</label>
+                </div>
 
                 <input
                 id="email"
                 placeholder="Enter email"
                 type="email"
                 class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"
+                [(ngModel)]="loginData.email"  [ngModelOptions]="{standalone: true}"
                 />
 
                 <div class="flex flex-row justify-between">
-                    <label for="password">Password</label>
+                    <div>
+                        <label for="password" *ngIf="!loginData.passError">Password</label>
+                        <label for="password" *ngIf="loginData.passError" class="text-red-700">Please enter your password</label>
+                    </div>
                     <p>Don't remember?</p>
                 </div>
 
@@ -56,9 +64,14 @@
                 placeholder="Enter password"
                 type="password"
                 class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2 "
+                [(ngModel)]="loginData.password" [ngModelOptions]="{standalone: true}"
                 />
 
-                <button class="rounded px-8  py-4 bg-blue-100 hover:bg-pink-300">
+                <button (click)="toLogin()"
+                class="rounded px-8  py-4 text-white font-bold text-lg 
+                bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500
+                "
+                >
                     Log in
                 </button>
 
