@@ -17,6 +17,17 @@ import { NgStyle } from '@angular/common';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { BtnComponent } from './components/btn/btn.component';
 
+import { environment } from '../environments/environment';
+
+
+//firebase
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
+
 
 @NgModule({
   declarations: [
@@ -28,6 +39,7 @@ import { BtnComponent } from './components/btn/btn.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    
 
     FormsModule,
     HttpClientModule,
@@ -37,6 +49,12 @@ import { BtnComponent } from './components/btn/btn.component';
     FontAwesomeModule,
     CdkAccordionModule,
     DragDropModule,
+/*
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,*/
 
   ],
   providers: [],

@@ -5,6 +5,8 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthP
 
 import { User, UserDTO, UserLoad, UserLogin} from '../models/user.model';
 import { FirebaseAuth } from '../firebase/config';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 @Injectable({
@@ -18,6 +20,8 @@ export class AuthService {
 
   constructor(
     private router: Router,
+    //public afs: AngularFirestore,
+    //public afAuth: AngularFireAuth
   ) { }
 
   async login(email:string, password:string){
@@ -26,7 +30,8 @@ export class AuthService {
 
       const userResponse = await signInWithEmailAndPassword( FirebaseAuth, email,password );
 
-      const { uid, displayName } = userResponse.user;
+      const { uid , displayName} = userResponse.user;
+
 
       this.user.next({uid,displayName,email});
 
@@ -41,6 +46,32 @@ export class AuthService {
 
   }
 
+  async loginWithGoogle(){
+
+    try{
+
+      const userResponse = await signInWithPopup(FirebaseAuth, new GoogleAuthProvider());
+
+      const { uid, displayName, email } = userResponse.user;
+
+     if(!email){ return false }
+
+     this.user.next({uid,displayName,email});
+
+      this.router.navigateByUrl('/admin');
+
+    }
+
+    catch(error:any){
+      
+      return error.message;
+    
+    }
+
+  }
+
+
+  
   logout(){ 
 
     FirebaseAuth.signOut(); 
@@ -77,11 +108,11 @@ export class AuthService {
   }
 
 
-  
-
-
-
 }
+
+  /*async loginWithGoogle(){
+    this.afAuth.signInWithPopup(new GoogleAuthProvider())
+  }*/
 
     //
     //private googleProvider:GoogleAuthProvider,
