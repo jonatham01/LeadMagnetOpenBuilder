@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { NewPage, NewPageError } from 'src/app/models/newpage.model';
 import { AuthService } from 'src/app/services/auth.service';
 
-@Component({
-  selector: 'app-pages-builder',
-  templateUrl: './pages-builder.component.html',
-  styleUrls: ['./pages-builder.component.scss']
-})
-export class PagesBuilderComponent {
 
+@Component({
+  selector: 'app-pages-form',
+  templateUrl: './pages-form.component.html',
+  styleUrls: ['./pages-form.component.scss']
+})
+export class PagesFormComponent {
   newPage:NewPage={
     "businessId":1,
     "name":"",
@@ -46,4 +46,3 @@ export class PagesBuilderComponent {
     
   }
 }
-

@@ -11,6 +11,8 @@ import { PostsBuilderComponent } from './posts-builder/posts-builder.component';
 import { ProductsBuilderComponent } from './products-builder/products-builder.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PagesFormComponent } from './pages-builder/pages-form/pages-form.component';
+import { PagesTemplateFormComponent } from './pages-builder/pages-template-form/pages-template-form.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsPanelComponent,
     PagesBuilderComponent,
     PostsBuilderComponent,
-    ProductsBuilderComponent
+    ProductsBuilderComponent,
+    PagesFormComponent,
+    PagesTemplateFormComponent
   ],
   imports: [
     CommonModule,
