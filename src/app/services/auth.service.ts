@@ -58,7 +58,7 @@ export class AuthService {
 
      this.user.next({uid,displayName,email});
 
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/admin/pagesbuilder');
 
     }
 
