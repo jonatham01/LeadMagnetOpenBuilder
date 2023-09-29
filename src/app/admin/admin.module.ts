@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PagesFormComponent } from './pages-builder/pages-form/pages-form.component';
 import { PagesTemplateFormComponent } from './pages-builder/pages-template-form/pages-template-form.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { PagesTemplateFormComponent } from './pages-builder/pages-template-form/
     AdminRoutingModule,
     FormsModule,
     HttpClientModule,
+    FontAwesomeModule,
   ]
 })
 export class AdminModule { }
