@@ -24,6 +24,10 @@ export class AuthService {
     //public afAuth: AngularFireAuth
   ) { }
 
+  validateUser(uid:string,displayName:string,email:string){
+    this.user.next({uid, displayName, email});
+  }
+
   async login(email:string, password:string){
 
     try{
@@ -69,7 +73,6 @@ export class AuthService {
     }
 
   }
-
 
   
   logout(){ 

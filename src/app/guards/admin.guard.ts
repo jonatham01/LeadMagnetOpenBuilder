@@ -6,6 +6,11 @@ import { map } from 'rxjs/operators';
 
 import { AuthService } from './../services/auth.service';
 
+import { getAuth } from "firebase/auth";
+import { FirebaseAuth } from '../firebase/config';
+import { onAuthStateChanged } from 'firebase/auth';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,10 +21,31 @@ export class AdminGuard {
     private router: Router
   ) {}
 
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
+      
+      return  new Promise((myResolve, myReject) =>{
+
+        onAuthStateChanged(FirebaseAuth, (user) =>{
+          if ( user ) {
+            const { uid, email, displayName} = user;
+            if (displayName && email) {this.authService.validateUser(uid, displayName, email,);}
+            myResolve(true);
+          }
+          else{
+            myResolve(false);
+          }
+          
+        });
+
+      });
+
+
+
+      /*
       return this.authService.user$
       .pipe(
         map(user => {
@@ -32,7 +58,8 @@ export class AdminGuard {
             return true
           }
         })
-      )
+      )*/
+  
   }
 
 }
