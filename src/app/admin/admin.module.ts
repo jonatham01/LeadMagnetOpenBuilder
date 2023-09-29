@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PagesFormComponent } from './pages-builder/pages-form/pages-form.component';
 import { PagesTemplateFormComponent } from './pages-builder/pages-template-form/pages-template-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 
 
@@ -27,7 +28,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PostsBuilderComponent,
     ProductsBuilderComponent,
     PagesFormComponent,
-    PagesTemplateFormComponent
+    PagesTemplateFormComponent,
+    SideMenuComponent
   ],
   imports: [
     CommonModule,
