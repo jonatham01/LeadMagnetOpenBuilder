@@ -8,7 +8,7 @@ export class BoxElementService {
 
   constructor() { }
 
-  boxService(page:Pages, path:string, componentId:string, pageId:string){
+  boxService(page:Pages, path:string, componentId:string, pageId:string,ide:string){
     
   }
 }

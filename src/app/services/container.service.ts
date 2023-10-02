@@ -33,7 +33,7 @@ export class ContainerService {
     containersDTO.forEach(container => {
       const newDoc = doc(collection(FirebaseDB,newPath) );
       setDoc(newDoc,container);
-      this.boxesService.boxesService(page, newPath,componentId,pageId,container.ide);
+      this.boxesService.boxesService(page, newPath, newDoc.id, pageId,container.ide);
     });
   }
 }
