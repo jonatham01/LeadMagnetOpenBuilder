@@ -3,12 +3,12 @@ import { LandingElementDTO } from "./LandingElement.model";
 
 export interface Pages{
     color?:string,
-    ruta?:string,
-    contenedores:LandingComponentDTO[],
-    contenedor: LandingComponentDTO[],
-    cajas:LandingComponentDTO[],
-    caja:LandingComponentDTO[],
-    elementos:LandingElementDTO[],
+    path?:string,
+    component:LandingComponentDTO[],
+    container: LandingComponentDTO[],
+    boxes:LandingComponentDTO[],
+    box:LandingComponentDTO[],
+    elements:LandingElementDTO[],
     img:string,
     id:number
     

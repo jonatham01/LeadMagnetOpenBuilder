@@ -1,18 +1,18 @@
-import { componentesLandingDTO, elementosLandingDTO } from 'src/app/models/componentesLanding';
-import { Pages } from '../models/pages';
+import { Pages } from '../models/Pages.model';
+
 
   export const page3:Pages={
     id:1,
     img:'../../../../../../assets/galeria/portada1.jpg',
     color:'red',
-    ruta:"https://storage.googleapis.com/website-production/uploads/2023/01/Group-9802-13.png",
+    path:"https://storage.googleapis.com/website-production/uploads/2023/01/Group-9802-13.png",
 
   //main-contenedores-contenedor-cajas-caja-elemento
 
-    contenedores:[
+    component:[
     
     {
-      ide:1,
+      ide:'1',
 
       numeration:1,
 
@@ -42,7 +42,7 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:2,
+      ide:'2',
 
       numeration:2,
 
@@ -72,12 +72,12 @@ import { Pages } from '../models/pages';
     }
     ],
 
-    contenedor:[
+    container:[
         
     {
-        ide:1,
+        ide:'1',
   
-        componentId:1,
+        componentId:'1',
   
         numeration:1,
   
@@ -97,9 +97,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:2,
+      ide:'2',
 
-      componentId:2,
+      componentId:'2',
 
       numeration:1,
 
@@ -120,11 +120,11 @@ import { Pages } from '../models/pages';
 
   ],
 //grupo
-   cajas:[
+   boxes:[
     {
-        ide:1,
+        ide:'1',
   
-        componentId:1,
+        componentId:'1',
   
         numeration:1,
   
@@ -136,9 +136,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:2,
+      ide:'2',
 
-      componentId:2,
+      componentId:'2',
 
       numeration:1,
 
@@ -151,9 +151,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:3,
+      ide:'3',
 
-      componentId:2,
+      componentId:'2',
 
       numeration:2,
 
@@ -174,11 +174,11 @@ import { Pages } from '../models/pages';
 1--4
 2--5
 */
-    caja:[
+    box:[
     {
-      ide:1,
+      ide:'1',
 
-      componentId:1,
+      componentId:'1',
 
       numeration:1,
 
@@ -192,9 +192,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:2,
+      ide:'2',
 
-      componentId:1,
+      componentId:'1',
 
       numeration:2,
 
@@ -210,9 +210,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-        ide:3,
+        ide:'3',
   
-        componentId:2,
+        componentId:'2',
   
         numeration:1,
   
@@ -231,9 +231,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:4,
+      ide:'4',
 
-      componentId:3,
+      componentId:'3',
 
       numeration:1,
 
@@ -253,9 +253,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:5,
+      ide:'5',
 
-      componentId:3,
+      componentId:'3',
 
       numeration:2,
       
@@ -280,12 +280,12 @@ import { Pages } from '../models/pages';
     
   ],
 
-    elementos:[
+    elements:[
     
     {
-      ide:1,
+      ide:'1',
 
-      componentId:1,
+      componentId:'1',
 
       numeration:1,
 
@@ -302,9 +302,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:2,
+      ide:'2',
 
-      componentId:1,
+      componentId:'1',
 
       numeration:2,
 
@@ -325,9 +325,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:3,
+      ide:'3',
 
-      componentId:1,
+      componentId:'1',
 
       numeration:3,
 
@@ -348,9 +348,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:4,
+      ide:'4',
 
-      componentId:2,
+      componentId:'2',
 
       numeration:1,
 
@@ -363,9 +363,9 @@ import { Pages } from '../models/pages';
     },
     
     {
-      ide:5,
+      ide:'5',
 
-      componentId:3,
+      componentId:'3',
 
       numeration:1,
 
@@ -383,9 +383,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:6,
+      ide:'6',
 
-      componentId:3,
+      componentId:'3',
 
       numeration:2,
 
@@ -408,9 +408,9 @@ import { Pages } from '../models/pages';
     },
     
     {
-      ide:7,
+      ide:'7',
 
-      componentId:4,
+      componentId:'4',
 
       numeration:1,
 
@@ -437,9 +437,9 @@ import { Pages } from '../models/pages';
 
 
     {
-      ide:8,
+      ide:'8',
 
-      componentId:5,
+      componentId:'5',
 
       numeration:1,
 
@@ -458,9 +458,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:9,
+      ide:'9',
 
-      componentId:5,
+      componentId:'5',
 
       numeration:2,
 
@@ -478,9 +478,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:10,
+      ide:'10',
 
-      componentId:5,
+      componentId:'5',
 
       numeration:3,
 
@@ -502,9 +502,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:11,
+      ide:'11',
 
-      componentId:5,
+      componentId:'5',
 
       numeration:4,
 
@@ -526,9 +526,9 @@ import { Pages } from '../models/pages';
     },
 
     {
-      ide:12,
+      ide:'12',
 
-      componentId:5,
+      componentId:'5',
 
       numeration:5,
 

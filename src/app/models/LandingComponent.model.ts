@@ -51,10 +51,10 @@ export interface LandingComponent{
     tag:string,
 
     ///estructura 
-    componentId:number,
-    pageId:number,
+    componentId:string,
+    pageId:string,
     numeration:number,
-    id:number,
+    id:string,
    
     name:string,
     title:string,
@@ -77,10 +77,10 @@ export interface LandingComponent{
   }
 
   export interface LandingComponentDTO extends Partial<LandingComponent>{
-    ide:number;
+    ide: string;
   }
 
   export interface LandingComponentResponse extends Partial<LandingComponent> {
-    id:number;
-    ide:number;
+    id:string;
+    ide: string;
    }

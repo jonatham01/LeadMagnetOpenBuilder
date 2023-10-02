@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Pages } from '../models/Pages.model';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +7,8 @@ import { Injectable } from '@angular/core';
 export class BoxElementService {
 
   constructor() { }
+
+  boxService(page:Pages, path:string, componentId:string, pageId:string){
+    
+  }
 }

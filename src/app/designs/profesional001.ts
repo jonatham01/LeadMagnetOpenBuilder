@@ -1,11 +1,12 @@
-import { Pages } from '../models/pages';
+import { Pages } from "../models/Pages.model";
+
 
 export const profesional001:Pages = {
     id:0,
     img:'../../../../../../assets/galeria/1681419943362.png',
     color:'red',
 
-    contenedores:[
+    component:[
         {
             ide:1,
       
@@ -97,7 +98,7 @@ export const profesional001:Pages = {
         },
     ]
 
-    ,contenedor:[
+    ,container:[
         {
             ide:1,
       
@@ -165,7 +166,7 @@ export const profesional001:Pages = {
         },
     ]
 
-    ,cajas:[
+    ,boxes:[
         {
             ide:1,
       
@@ -235,7 +236,7 @@ export const profesional001:Pages = {
         },
     ]
 
-    ,caja:[
+    ,box:[
         {
             ide:1,
       
@@ -404,7 +405,7 @@ export const profesional001:Pages = {
           
     ]
 
-    ,elementos:[
+    ,elements:[
         {
             ide:1,
       

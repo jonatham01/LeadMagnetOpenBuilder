@@ -1,15 +1,15 @@
 import { LandingComponent } from "./LandingComponent.model"
 
 export interface LandingElementDTO extends Partial<LandingComponent> {
-    id?:number,
-    ide:number,
+    id?:string,
+    ide:string,
     content:string
    }
 
    export interface LandingElementResponse extends Partial<LandingComponent> {
-    id:number,
-    ide:number,
+    id:string,
+    ide:string,
     content:string,
     numeration:number,
-    componentId:number
+    componentId:string
    }
