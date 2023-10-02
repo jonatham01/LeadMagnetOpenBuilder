@@ -15,23 +15,18 @@ export class ComponentService {
     private containerService:ContainerService
   ) { }
 
-  componentService(uid:string,page:Pages,pageId:string){
+  createComponent(uid:string,page:Pages,pageId:string){
 
     let path = `${ uid }/landings/pages/${ pageId }/components`;
 
-    var componentDTO:LandingComponentDTO[]= page.component.map(
-      contentData=>{
-        return{
-          ...contentData,
-          pageId:pageId
-        }
-      }
-    );
+    var componentDTO:LandingComponentDTO[]= page.component.map(component=>{
+        return{...component, pageId }
+    });
 
     componentDTO.forEach((component) => {
       const newDoc = doc( collection( FirebaseDB, path) );
       setDoc( newDoc, component );
-      this.containerService.containerService(page, path, newDoc.id, pageId,component.ide);
+      this.containerService.createContainer(page, path, newDoc.id, pageId,component.ide);
     });
 
   }

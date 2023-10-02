@@ -13,7 +13,7 @@ export class LandingElementService {
 
   constructor() { }
 
-  elementService(page:Pages, path:string, componentId:string, pageId:string,ide:string){
+  createElement(page:Pages, path:string, componentId:string, pageId:string,ide:string){
 
     const newPath = `${path}/${componentId}/elements`;
 

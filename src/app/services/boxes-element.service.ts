@@ -14,7 +14,7 @@ export class BoxesElementService {
     private boxService:BoxElementService
   ) { }
 
-  boxesService(page:Pages, path:string, componentId:string, pageId:string,ide:string){
+  createBoxes(page:Pages, path:string, componentId:string, pageId:string,ide:string){
 
     const newPath = `${path}/${componentId}/boxes`;
 
@@ -27,7 +27,7 @@ export class BoxesElementService {
     boxesDTO.forEach(box => {
       const newDoc = doc( collection( FirebaseDB, newPath) );
       setDoc(newDoc,box);
-      this.boxService.boxService(page,newPath,newDoc.id,pageId,box.ide);
+      this.boxService.createBox(page,newPath,newDoc.id,pageId,box.ide);
     });
   }
   

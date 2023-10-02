@@ -13,7 +13,7 @@ export class BoxElementService {
     private elementService: LandingElementService,
   ) { }
 
-  boxService(page:Pages, path:string, componentId:string, pageId:string,ide:string){
+  createBox(page:Pages, path:string, componentId:string, pageId:string,ide:string){
     
     const newPath = `${path}/${componentId}/box`
 
@@ -26,7 +26,7 @@ export class BoxElementService {
     boxes.forEach( box => {
       const newDoc = doc( collection(FirebaseDB, newPath) );
       setDoc( newDoc, box);
-      this.elementService.elementService(page,newPath, newDoc.id,pageId,ide);
+      this.elementService.createElement(page,newPath, newDoc.id,pageId,ide);
     });
   }
 }

@@ -14,26 +14,20 @@ export class ContainerService {
     private boxesService:BoxesElementService
   ) { }
 
-  containerService(page:Pages, path:string, componentId:string, pageId:string, ide:string){
+  createContainer(page:Pages, path:string, componentId:string, pageId:string, ide:string){
 
     const newPath=`${path}/${componentId}/containers`;
 
     const containers = page.container.filter(data =>  data.componentId == ide);
 
-    const containersDTO:LandingComponentDTO[]= containers.map(
-      contentData=>{
-        return{
-          ...contentData,
-          componentId:componentId,
-          pageId:pageId
-        }
-      }
-    );
+    const containersDTO:LandingComponentDTO[]= containers.map(contentData=>{
+        return{ ...contentData,componentId,pageId}
+    });
 
     containersDTO.forEach(container => {
       const newDoc = doc(collection(FirebaseDB,newPath) );
       setDoc(newDoc,container);
-      this.boxesService.boxesService(page, newPath, newDoc.id, pageId,container.ide);
+      this.boxesService.createBoxes(page, newPath, newDoc.id, pageId,container.ide);
     });
   }
 }
