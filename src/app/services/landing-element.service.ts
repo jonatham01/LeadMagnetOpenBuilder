@@ -3,6 +3,7 @@ import { LandingComponentResponse } from '../models/LandingComponent.model';
 import { Pages } from '../models/Pages.model';
 import { collection, doc, setDoc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../firebase/config';
+import { LandingElementDTO } from '../models/LandingElement.model';
 
 
 @Injectable({
@@ -14,13 +15,15 @@ export class LandingElementService {
 
   elementService(page:Pages, path:string, componentId:string, pageId:string,ide:string){
 
-    const newPath= `${path}/${componentId}/elements`;
+    const newPath = `${path}/${componentId}/elements`;
 
-    let filterData= page.elements.filter(dataElemento=>{
-      return dataElemento.componentId == ide;
+    const filterData:LandingElementDTO[] = page.elements.filter(dataElemento => dataElemento.componentId == ide);
+
+    const elementDTO: LandingElementDTO[] = filterData.map(element => {
+      return {...element,componentId,pageId}
     });
 
-    filterData.forEach(element => {
+    elementDTO.forEach(element => {
       const newDoc = doc( collection( FirebaseDB, newPath) );
       setDoc( newDoc, element );
     })
