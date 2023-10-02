@@ -12,14 +12,16 @@ export class LandingElementService {
 
   constructor() { }
 
-  elementService(uid:string,boxes:LandingComponentResponse,page:Pages){
+  elementService(page:Pages, path:string, componentId:string, pageId:string,ide:string){
+
+    const newPath= `${path}/${componentId}/elements`;
 
     let filterData= page.elements.filter(dataElemento=>{
-      return dataElemento.componentId == boxes.ide;
+      return dataElemento.componentId == ide;
     });
 
     filterData.forEach(element => {
-      const newDoc = doc( collection( FirebaseDB, `${ uid }/landings/elements`) );
+      const newDoc = doc( collection( FirebaseDB, newPath) );
       setDoc( newDoc, element );
     })
 
