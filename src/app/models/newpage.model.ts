@@ -6,8 +6,8 @@ export interface NewPage {
     imageUrl:string;
     state:string;
     main:boolean;
-    user:number;
-    businessId:number;
+    user:string;
+    
   }
 
   export interface NewPageError{
@@ -19,6 +19,6 @@ export interface NewPage {
   }
 
   export interface ReponseNewPage extends NewPage{
-    id:number
+    id:string
   }
   

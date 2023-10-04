@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
+import { switchMap, tap } from 'rxjs';
 import { NewPage, NewPageError } from 'src/app/models/newpage.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { FileServiceService } from 'src/app/services/file-service.service';
+import { PagesService } from 'src/app/services/pages.service';
+import { page3 } from 'src/app/designs/page3';
+import { Pages } from 'src/app/models/Pages.model';
 
 
 @Component({
@@ -9,15 +14,19 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./pages-form.component.scss']
 })
 export class PagesFormComponent {
+
+  pages:Pages[] = [page3];
+
+  numberPage:number |null = null;
+
   newPage:NewPage={
-    "businessId":1,
     "name":"",
     "resume":"",
     "title":"",
     "imageUrl":"",
     "state":"Pendiente",
     "main":false,
-    "user":1
+    "user":'1'
   }
 
   newPageError:NewPageError = {
@@ -32,6 +41,8 @@ export class PagesFormComponent {
 
   constructor(
     private authService: AuthService,
+    private fileService:FileServiceService,
+    private pageService:PagesService, // createPage(data:NewPage, uid:string, page:Pages
   ){
     //this.authService.user$.subscribe(data=>console.log(data));
   }
@@ -40,9 +51,22 @@ export class PagesFormComponent {
 
     const element = event.target as HTMLInputElement;
 
-    const file = element.files?.item(0);
+    const file = element.files?.item(0) as File;
 
-    if(file) {this.imgTarget= file;}
-    
+    this.imgTarget= file;
+        
+  }
+
+  createPage(){
+
+    this.fileService.uploadFile(this.imgTarget as File).pipe(
+     tap(file => this.newPage.imageUrl = file.filename)
+    )
+    .subscribe(file=>{
+      this.pageService.createPage(
+        this.newPage,
+        this.newPage.user,
+        this.pages[this.numberPage as number])
+    } );
   }
 }

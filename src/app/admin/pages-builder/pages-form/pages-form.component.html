@@ -1,48 +1,52 @@
 
-        <h1 class="font-bold text-lg text-black mb-8">Board: Create Page</h1>
+      <h1 class="font-bold text-lg text-black mb-8">Board: Create Page</h1>
 
-        <label for="pageName">Name</label>
+      <label for="pageName">Name</label>
 
-        <p  style="color: red;font-weight: bold;" *ngIf="newPageError.name"> It's necessary enter a name</p>
+      <p  style="color: red;font-weight: bold;" *ngIf="newPageError.name"> 
+         It's necessary enter a name
+      </p>
 
-        <input  type="text" name="pageName" id="pageName"   class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"
-        [(ngModel)]='newPage.name'   
-        >
+      <input  type="text" name="pageName" id="pageName"   class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"
+      [(ngModel)]='newPage.name'   
+      >
 
-        <label for="title">Title</label>
+      <label for="title">Title</label>
         
-        <p  style="color: red;font-weight: bold;" *ngIf="newPageError.title"> It's necessary enter a title</p>
+      <p  style="color: red;font-weight: bold;" *ngIf="newPageError.title"> 
+         It's necessary enter a title
+      </p>
 
-        <input type="text" name="title" id="title"   class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"
-        [(ngModel)]="newPage.title"
-        >
+      <input type="text" name="title" id="title"   class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"
+      [(ngModel)]="newPage.title"
+      >
 
-        <label for="resume">Resume</label>
+      <label for="resume">Resume</label>
 
-        <p  style="color: red;font-weight: bold;" *ngIf="newPageError.resume"> It's necessary enter a resume</p>
+      <p  style="color: red;font-weight: bold;" *ngIf="newPageError.resume"> It's necessary enter a resume</p>
 
-        <textarea name="resume" id="resume" cols="30" rows="5" class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"
-        [(ngModel)]="newPage.resume"
+      <textarea name="resume" id="resume" cols="30" rows="5" class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"
+      [(ngModel)]="newPage.resume"></textarea>
 
-        ></textarea>
+      <label for="image" >Image</label>
 
-        <label for="image" >Image</label>
+      <p  style="color: red;font-weight: bold;" *ngIf="newPageError.imageUrl"> 
+      It's necessary enter an image
+      </p>
 
-        <p  style="color: red;font-weight: bold;" *ngIf="newPageError.imageUrl">  It's necessary enter an image</p>
+      <input (change)="onChangeImg($event)" type="file" name="image" id="image"  accept=".jpg, .jpeg, .png"
+      class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2">
 
-        <input (change)="onChangeImg($event)" type="file" name="image" id="image"  accept=".jpg, .jpeg, .png"
-         class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2">
+      <label for="state">State</label>
 
-        <label for="state">State</label>
-
-        <p  style="color: red;font-weight: bold;" *ngIf="newPageError.name"> It's necessary enter an state</p>
+      <p  style="color: red;font-weight: bold;" *ngIf="newPageError.name"> It's necessary enter an state</p>
         
-        <input type="text" readonly name="state" id="state" [(ngModel)]="newPage.state"   
+      <input type="text" readonly name="state" id="state" [(ngModel)]="newPage.state"   
         class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"> 
 
-        <button type="submit" 
-        class="rounded px-8  py-4 text-white font-bold text-lg  mt-4 w-full
-        bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
-           Continue: Select template for your page
-        </button>
+      <button type="submit" 
+      class="rounded px-8  py-4 text-white font-bold text-lg  mt-4 w-full
+      bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+         Continue: Select template for your page
+      </button>
 
