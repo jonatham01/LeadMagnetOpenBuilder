@@ -15,7 +15,7 @@ export class ComponentService {
     private containerService:ContainerService
   ) { }
 
-  createComponent(uid:string,page:Pages,pageId:string){
+  createComponents(uid:string,page:Pages,pageId:string){
 
     let path = `${ uid }/landings/pages/${ pageId }/components`;
 
@@ -26,7 +26,7 @@ export class ComponentService {
     componentDTO.forEach((component) => {
       const newDoc = doc( collection( FirebaseDB, path) );
       setDoc( newDoc, component );
-      this.containerService.createContainer(page, path, newDoc.id, pageId,component.ide);
+      this.containerService.createContainers(page, path, newDoc.id, pageId,component.ide);
     });
 
   }

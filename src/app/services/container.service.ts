@@ -14,7 +14,7 @@ export class ContainerService {
     private boxesService:BoxesElementService
   ) { }
 
-  createContainer(page:Pages, path:string, componentId:string, pageId:string, ide:string){
+  createContainers(page:Pages, path:string, componentId:string, pageId:string, ide:string){
 
     const newPath=`${path}/${componentId}/containers`;
 

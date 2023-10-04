@@ -27,7 +27,7 @@ export class BoxesElementService {
     boxesDTO.forEach(box => {
       const newDoc = doc( collection( FirebaseDB, newPath) );
       setDoc(newDoc,box);
-      this.boxService.createBox(page,newPath,newDoc.id,pageId,box.ide);
+      this.boxService.createBoxes(page,newPath,newDoc.id,pageId,box.ide);
     });
   }
   

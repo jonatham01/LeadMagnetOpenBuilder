@@ -20,6 +20,6 @@ export class PagesService {
 
     const newDoc = doc( collection(FirebaseDB, path) );
     setDoc(newDoc,data);
-    this.componentService.createComponent(uid, page,newDoc.id)
+    this.componentService.createComponents(uid, page,newDoc.id)
   }
 }
