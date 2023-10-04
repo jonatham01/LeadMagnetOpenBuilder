@@ -39,14 +39,31 @@
 
       <label for="state">State</label>
 
-      <p  style="color: red;font-weight: bold;" *ngIf="newPageError.name"> It's necessary enter an state</p>
+      <p  style="color: red;font-weight: bold;" *ngIf="newPageError.name"> 
+         It's necessary enter an state
+      </p>
         
       <input type="text" readonly name="state" id="state" [(ngModel)]="newPage.state"   
         class="w-full py-3 rounded bg-gray-100 border-gray-300 border-2"> 
 
+      <label>
+         Select your favorite template for this page
+      </label>
+
+      <div *ngFor="let page of pages;index as i"
+      class="grid grid-cols-3 gap-8"
+      >
+         <app-images-active 
+         (onSelected)="selectPage($event)"
+         [imagen]="page.path" 
+         [imageNum]="i" 
+         [imageActive]="imageActive" />
+         
+     </div>
+
       <button type="submit" 
       class="rounded px-8  py-4 text-white font-bold text-lg  mt-4 w-full
       bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
-         Continue: Select template for your page
+         Create Page
       </button>
 

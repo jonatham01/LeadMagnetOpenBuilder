@@ -10,14 +10,14 @@ import { AuthService } from 'src/app/services/auth.service';
 export class PagesBuilderComponent {
 
   newPage:NewPage={
-    "businessId":1,
+
     "name":"",
     "resume":"",
     "title":"",
     "imageUrl":"",
     "state":"Pendiente",
     "main":false,
-    "user":1
+    "user":'1'
   }
 
   newPageError:NewPageError = {

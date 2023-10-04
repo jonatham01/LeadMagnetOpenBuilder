@@ -17,7 +17,7 @@ export class PagesFormComponent {
 
   pages:Pages[] = [page3];
 
-  numberPage:number |null = null;
+  imageActive = 0;
 
   newPage:NewPage={
     "name":"",
@@ -56,6 +56,10 @@ export class PagesFormComponent {
     this.imgTarget= file;
         
   }
+  
+  selectPage(page:number){
+    this.imageActive = page;
+  }
 
   createPage(){
 
@@ -66,7 +70,7 @@ export class PagesFormComponent {
       this.pageService.createPage(
         this.newPage,
         this.newPage.user,
-        this.pages[this.numberPage as number])
+        this.pages[this.imageActive as number])
     } );
   }
 }

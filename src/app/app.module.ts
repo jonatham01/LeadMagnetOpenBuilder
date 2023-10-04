@@ -29,11 +29,13 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     BtnComponent,
+
     
   ],
   imports: [
