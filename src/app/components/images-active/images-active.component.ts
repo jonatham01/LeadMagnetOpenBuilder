@@ -22,7 +22,8 @@ export class ImagesActiveComponent implements OnChanges {
       'w-full':true,
       'hover:brightness-50':true,
 
-      'border-2 ': this.isActive===true,
+      'p-4': this.isActive===true,
+      'border-4 ': this.isActive===true,
       'border-amber-500': this.isActive===true,
       'brightness-100': this.isActive===true,
     

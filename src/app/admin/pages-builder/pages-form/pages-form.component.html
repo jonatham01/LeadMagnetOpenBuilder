@@ -50,14 +50,16 @@
          Select your favorite template for this page
       </label>
 
-      <div *ngFor="let page of pages;index as i"
+      <div 
       class="grid grid-cols-3 gap-8"
       >
-         <app-images-active 
+         <app-images-active  *ngFor="let page of pages;index as i"
          (onSelected)="selectPage($event)"
          [imagen]="page.path" 
          [imageNum]="i" 
          [imageActive]="imageActive" />
+
+         
          
      </div>
 
