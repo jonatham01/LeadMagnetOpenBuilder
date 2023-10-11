@@ -16,9 +16,12 @@ export class BoxesElementService {
 
   createBoxes(page:Pages, path:string, componentId:string, pageId:string,ide:string){
 
+    //console.log( ide);
+   // console.log(path);
+
     const newPath = `${path}/${componentId}/boxes`;
 
-    const boxes = page.boxes.filter(data => data.componentId == componentId );
+    const boxes = page.boxes.filter(data => data.componentId == ide );
     
     const boxesDTO:LandingComponentDTO[] = boxes.map(data  => {
       return{...data,componentId,pageId}

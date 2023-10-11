@@ -17,7 +17,7 @@ export class ComponentService {
 
   createComponents(uid:string,page:Pages,pageId:string){
 
-    let path = `${ uid }/landings/pages/${ pageId }/components`;
+    let path = `${ uid }/landing/pages/${ pageId }/components`;
 
     var componentDTO:LandingComponentDTO[]= page.component.map(component=>{
         return{...component, pageId }
