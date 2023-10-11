@@ -19,6 +19,9 @@ export class PagesFormComponent {
 
   imageActive = 0;
 
+  //crear la paginacion
+  paginationPage = 0;
+
   newPage:NewPage={
     "name":"",
     "resume":"",
