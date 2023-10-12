@@ -28,7 +28,7 @@ export class PagesService {
     const title = name.replace("-"," ");
     const path = `${uid}/landing/pages`;
     const pageCollection = collection(FirebaseDB, path);
-    const q = query(pageCollection, where("name", "==", title));
+    const doc = query(pageCollection, where("name", "==", title));
 
   }
 }

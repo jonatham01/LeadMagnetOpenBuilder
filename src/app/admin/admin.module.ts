@@ -16,6 +16,7 @@ import { PagesTemplateFormComponent } from './pages-builder/pages-template-form/
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { ImagesActiveComponent } from '../components/images-active/images-active.component';
+import { PagesEditComponent } from './pages-edit/pages-edit.component';
 
 
 
@@ -32,7 +33,8 @@ import { ImagesActiveComponent } from '../components/images-active/images-active
     PagesFormComponent,
     PagesTemplateFormComponent,
     SideMenuComponent,
-    ImagesActiveComponent
+    ImagesActiveComponent,
+    PagesEditComponent
   ],
   imports: [
     CommonModule,
