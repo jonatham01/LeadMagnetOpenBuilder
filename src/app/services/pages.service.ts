@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ComponentService } from './component.service';
 import { NewPage } from '../models/newpage.model';
-import { collection, doc, setDoc } from 'firebase/firestore/lite';
+import { collection, doc, query, setDoc, where } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../firebase/config';
 import { Pages } from '../models/Pages.model';
 
@@ -21,5 +21,14 @@ export class PagesService {
     const newDoc = doc( collection(FirebaseDB, path) );
     setDoc(newDoc,data);
     this.componentService.createComponents(uid, page,newDoc.id)
+  }
+
+  loadPage( uid:string, name:string ){
+
+    const title = name.replace("-"," ");
+    const path = `${uid}/landing/pages`;
+    const pageCollection = collection(FirebaseDB, path);
+    const q = query(pageCollection, where("name", "==", title));
+
   }
 }
