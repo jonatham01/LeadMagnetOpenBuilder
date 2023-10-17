@@ -17,6 +17,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { ImagesActiveComponent } from '../components/images-active/images-active.component';
 import { PagesEditComponent } from './pages-edit/pages-edit.component';
+import { PageContentComponent } from './pages-edit/page-content/page-content.component';
+import { PageWidgetsComponent } from './pages-edit/page-widgets/page-widgets.component';
 
 
 
@@ -34,7 +36,9 @@ import { PagesEditComponent } from './pages-edit/pages-edit.component';
     PagesTemplateFormComponent,
     SideMenuComponent,
     ImagesActiveComponent,
-    PagesEditComponent
+    PagesEditComponent,
+    PageContentComponent,
+    PageWidgetsComponent
   ],
   imports: [
     CommonModule,
