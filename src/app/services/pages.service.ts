@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ComponentService } from './component.service';
 import { NewPage } from '../models/newpage.model';
-import { collection, doc, query, setDoc, where } from 'firebase/firestore/lite';
+import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../firebase/config';
 import { Pages } from '../models/Pages.model';
 
@@ -17,7 +17,6 @@ export class PagesService {
   createPage(data:NewPage, uid:string, page:Pages){
 
     const path = `${uid}/landing/pages`;
-
     const newDoc = doc( collection(FirebaseDB, path) );
     setDoc(newDoc,data);
     this.componentService.createComponents(uid, page,newDoc.id)
@@ -31,5 +30,19 @@ export class PagesService {
     const doc = query(pageCollection, where("name", "==", title));
     console.log(doc);
 
+  }
+
+  showPages(uid:string){
+
+    const pagesCollection = collection(FirebaseDB, `${uid}/landing/pages`);
+    const docs =  getDocs(pagesCollection);
+    const notes: any[] = [];
+    docs.then(data=>{
+      data.forEach( doc => {
+        notes.push({ id: doc.id, ...doc.data() });
+      });
+    })
+    return notes;
+    
   }
 }
