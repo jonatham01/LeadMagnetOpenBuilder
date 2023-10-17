@@ -11,7 +11,7 @@ import { PagesService } from 'src/app/services/pages.service';
 })
 export class PagesPanelComponent implements OnInit{
 
-  notes:any[]= [];
+  pages:any[]= [];
 
   constructor(
     private pageServices:PagesService,
@@ -22,7 +22,7 @@ export class PagesPanelComponent implements OnInit{
   ngOnInit(): void {
     this.authService.user$.subscribe(userData => {
       this.route.paramMap.pipe(
-        tap(params => this.notes = this.pageServices.showPages(userData?.uid))
+        tap(params => this.pages = this.pageServices.showPages(userData?.uid))
       );
     });
   }

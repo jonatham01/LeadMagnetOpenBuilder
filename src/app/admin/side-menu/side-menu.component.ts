@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-menu.component.scss']
 })
 export class SideMenuComponent {
+
+  constructor(
+    private router:Router
+  ){}
+
+  toNavigate(web:string){
+    this.router.navigate([web]);
+  }
 
 }

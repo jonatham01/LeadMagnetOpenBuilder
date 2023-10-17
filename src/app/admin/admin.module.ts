@@ -19,6 +19,7 @@ import { ImagesActiveComponent } from '../components/images-active/images-active
 import { PagesEditComponent } from './pages-edit/pages-edit.component';
 import { PageContentComponent } from './pages-edit/page-content/page-content.component';
 import { PageWidgetsComponent } from './pages-edit/page-widgets/page-widgets.component';
+import { PagesListComponent } from './pages-panel/pages-list/pages-list.component';
 
 
 
@@ -38,7 +39,8 @@ import { PageWidgetsComponent } from './pages-edit/page-widgets/page-widgets.com
     ImagesActiveComponent,
     PagesEditComponent,
     PageContentComponent,
-    PageWidgetsComponent
+    PageWidgetsComponent,
+    PagesListComponent
   ],
   imports: [
     CommonModule,
