@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { PagesService } from 'src/app/services/pages.service';
@@ -16,14 +16,19 @@ export class PagesPanelComponent implements OnInit{
   constructor(
     private pageServices:PagesService,
     private route:ActivatedRoute,
-    private authService:AuthService
+    private authService:AuthService,
+    private router:Router,
   ){}
 
   ngOnInit(): void {
     this.authService.user$.subscribe(userData => {
-      this.route.paramMap.pipe(
-        tap(params => this.pages = this.pageServices.showPages(userData?.uid))
-      );
+      this.pages = this.pageServices.showPages(userData?.uid);
+      //console.log(this.pageServices.showPages(userData?.uid))
+
     });
+  }
+
+  toNavigate(web:string){
+    this.router.navigate([web]);
   }
 }

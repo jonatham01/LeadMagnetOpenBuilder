@@ -8,11 +8,29 @@
             <div class=" md:w-8/12 flex flex-col space-y-4 bg-white p-16 my-8">
 
                 <h3>Paginas creadas</h3>
-
-                <div *ngFor="let page of pages">
-
-                </div>
-
+                    
+                <table>
+                    <thead [ngStyle]="{'width':'100%','padding':0,'margin':0}">
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Enlace URL</th>
+                                <th>Usuario</th>
+                                <th>Estado de aprobación</th>
+                                <th>Editar</th>
+                            </tr>
+                    </thead>
+                        
+                    <tbody *ngFor="let page of pages" [ngStyle]="{'width':'100%','padding':0,'margin':0}">
+                            <tr>
+                                <td>{{page.title}} </td>
+                                <td> {{"/"+page.title.replace(" ","-")}} </td>
+                                <td> {{page.user}} </td>
+                                <td> {{page.state}} </td>
+                                <td (click)="toNavigate(page.title)"><button>Ir a edición</button></td>
+                            </tr>
+                    </tbody>
+                </table>
+         
             </div>
    
     </div>

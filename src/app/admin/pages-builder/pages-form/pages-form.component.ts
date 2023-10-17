@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { switchMap, tap } from 'rxjs';
 import { NewPage, NewPageError } from 'src/app/models/newpage.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,7 +13,7 @@ import { Pages } from 'src/app/models/Pages.model';
   templateUrl: './pages-form.component.html',
   styleUrls: ['./pages-form.component.scss']
 })
-export class PagesFormComponent {
+export class PagesFormComponent implements OnInit{
 
   pages:Pages[] = [page3];
 
@@ -46,8 +46,10 @@ export class PagesFormComponent {
     private authService: AuthService,
     private fileService:FileServiceService,
     private pageService:PagesService, // createPage(data:NewPage, uid:string, page:Pages
-  ){
-    //this.authService.user$.subscribe(data=>console.log(data));
+  ){}
+
+  ngOnInit(): void {
+    this.authService.user$.subscribe(data=>this.newPage.user = data?.uid);
   }
 
   onChangeImg(event: Event) {

@@ -33,13 +33,13 @@ export class PagesService {
   }
 
   showPages(uid:string){
-
     const pagesCollection = collection(FirebaseDB, `${uid}/landing/pages`);
     const docs =  getDocs(pagesCollection);
     const notes: any[] = [];
     docs.then(data=>{
       data.forEach( doc => {
         notes.push({ id: doc.id, ...doc.data() });
+        //console.log({ id: doc.id, ...doc.data() });
       });
     })
     return notes;
