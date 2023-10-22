@@ -4,15 +4,36 @@ import { NewPage } from '../models/newpage.model';
 import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../firebase/config';
 import { Pages } from '../models/Pages.model';
+import { HttpClient } from '@angular/common/http';
+import { map, retry, tap } from 'rxjs';
+import { LandingComponentDTO } from '../models/LandingComponent.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PagesService {
 
+  private newPageUrl = '/data/api/pages';
+
   constructor(
     private componentService: ComponentService,
+    private http:HttpClient,
   ) { }
+
+  createNewPage(data:NewPage, uid:string, page:Pages){
+
+    const path= `${this.newPageUrl}/create`;
+    this.http.post<any>(path,data).pipe(
+      retry(3),
+      tap( newPage => {
+        const componentsDTO:LandingComponentDTO[]= page.component.map(
+          contentData=>{ return{...contentData,pageId:newPage.id} }
+        );
+        componentsDTO.forEach(component=>{ this.componentService.createComponent(component,page,newPage.id) });
+
+      })
+    ).subscribe();
+  }
 
   createPage(data:NewPage, uid:string, page:Pages){
 

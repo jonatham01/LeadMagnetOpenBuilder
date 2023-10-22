@@ -13,6 +13,8 @@ export class PagesPanelComponent implements OnInit{
 
   pages:any[]= [];
 
+  user:any = {};
+
   constructor(
     private pageServices:PagesService,
     private route:ActivatedRoute,
@@ -22,8 +24,8 @@ export class PagesPanelComponent implements OnInit{
 
   ngOnInit(): void {
     this.authService.user$.subscribe(userData => {
+      this.user = userData;
       this.pages = this.pageServices.showPages(userData?.uid);
-      //console.log(this.pageServices.showPages(userData?.uid))
 
     });
   }

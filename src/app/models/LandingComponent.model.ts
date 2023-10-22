@@ -51,8 +51,8 @@ export interface LandingComponent{
     tag:string,
 
     ///estructura 
-    componentId:string,
-    pageId:string,
+    componentId:string|number,
+    pageId:string|number,
     numeration:number,
     id:string,
    

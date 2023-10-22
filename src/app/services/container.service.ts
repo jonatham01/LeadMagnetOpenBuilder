@@ -4,6 +4,8 @@ import { collection, doc, setDoc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../firebase/config';
 import { LandingComponentDTO } from '../models/LandingComponent.model';
 import { BoxesElementService } from './boxes-element.service';
+import { HttpClient } from '@angular/common/http';
+import { retry, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,26 @@ import { BoxesElementService } from './boxes-element.service';
 export class ContainerService {
 
   constructor(
-    private boxesService:BoxesElementService
+    private boxesService:BoxesElementService,
+    private http:HttpClient,
   ) { }
+
+  createContainer(container:LandingComponentDTO,page:Pages, pageId:number|string){
+    
+    this.http.post<any>('/data/api/container/create',container).pipe(
+      retry(3),
+      tap(containerResponse=>{
+    
+        var BoxesFiltered= page.boxes.filter(containerData=>{
+          return  containerData.componentId == containerResponse.ide;
+         });
+
+        const boxes = BoxesFiltered.map(boxes=>{return {...boxes,pageId,componentId:containerResponse.id}});
+        boxes.forEach(box => this.boxesService.createBox(box,page,pageId,));
+      })
+    ).subscribe()
+  }
+
 
   createContainers(page:Pages, path:string, componentId:string, pageId:string, ide:string){
 

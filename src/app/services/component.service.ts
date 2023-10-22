@@ -4,6 +4,8 @@ import { FirebaseDB } from '../firebase/config';
 import { LandingComponent, LandingComponentDTO, LandingComponentResponse } from '../models/LandingComponent.model';
 import { Pages } from '../models/Pages.model';
 import { ContainerService } from './container.service';
+import { HttpClient } from '@angular/common/http';
+import { retry, tap } from 'rxjs';
 
 
 @Injectable({
@@ -12,7 +14,9 @@ import { ContainerService } from './container.service';
 export class ComponentService {
 
   constructor(
-    private containerService:ContainerService
+    private containerService:ContainerService,
+    private http:HttpClient,
+
   ) { }
 
   createComponents(uid:string,page:Pages,pageId:string){
@@ -29,6 +33,22 @@ export class ComponentService {
       this.containerService.createContainers(page, path, newDoc.id, pageId,component.ide);
     });
 
+  }
+  
+  createComponent(component:LandingComponentDTO,page:Pages, pageId:number|string){
+    
+    this.http.post<any>('/data/api/component/create',component).pipe(
+      retry(3),
+      tap( componentResponse => {
+
+        var containersFiltered= page.container.filter(containerData=>{
+          return  containerData.componentId == componentResponse.ide;
+         });
+
+        const containers = containersFiltered.map(container=>{return {...container,pageId,componentId:componentResponse.id}});
+        containers.forEach( container => this.containerService.createContainer(container, page, pageId));
+      })
+    ).subscribe();
   }
 
 }

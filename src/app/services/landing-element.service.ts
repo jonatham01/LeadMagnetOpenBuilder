@@ -4,6 +4,8 @@ import { Pages } from '../models/Pages.model';
 import { collection, doc, setDoc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../firebase/config';
 import { LandingElementDTO } from '../models/LandingElement.model';
+import { HttpClient } from '@angular/common/http';
+import { retry } from 'rxjs';
 
 
 @Injectable({
@@ -11,7 +13,15 @@ import { LandingElementDTO } from '../models/LandingElement.model';
 })
 export class LandingElementService {
 
-  constructor() { }
+  constructor(
+    private http:HttpClient,
+  ) { }
+
+  createElement(element:LandingElementDTO,page:Pages ,pageId:string|number){
+    this.http.post<any>('/data/api/element/create',element).subscribe(
+      retry(3)
+    );
+  }
 
   createElements(page:Pages, path:string, componentId:string, pageId:string,ide:string){
 

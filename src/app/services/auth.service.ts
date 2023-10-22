@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 
 import { User, UserDTO, UserLoad, UserLogin} from '../models/user.model';
-import { FirebaseAuth } from '../firebase/config';
+import { FirebaseAuth, FirebaseDB } from '../firebase/config';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { doc, setDoc } from 'firebase/firestore/lite';
 
 
 @Injectable({
@@ -62,6 +63,8 @@ export class AuthService {
 
      this.user.next({uid,displayName,email});
 
+      this.createPage(uid,{displayName,email});
+
       this.router.navigateByUrl('/admin/pagesbuilder');
 
     }
@@ -109,6 +112,12 @@ export class AuthService {
   }
 
   }
+
+  createPage(uid:string,data:any){
+    const newDoc = doc(FirebaseDB, `${uid}/user` );
+    setDoc(newDoc,data);
+  }
+
 
 
 }
