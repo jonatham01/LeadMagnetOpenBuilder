@@ -15,7 +15,7 @@ import { Pages } from 'src/app/models/Pages.model';
 })
 export class PagesFormComponent implements OnInit{
 
-  pages:Pages[] = [page3];
+  pages:Pages[] = [page3]; //paginas prediseñadas
 
   imageActive = 0;
 
@@ -58,10 +58,12 @@ export class PagesFormComponent implements OnInit{
 
     const file = element.files?.item(0) as File;
 
+    //validar si es una imagen sino mostrar un error
+
     this.imgTarget= file;
-        
+
   }
-  
+
   selectPage(page:number){
     this.imageActive = page;
   }

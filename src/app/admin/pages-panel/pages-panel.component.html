@@ -9,7 +9,7 @@
             <div class=" md:w-8/12 flex flex-col space-y-4 bg-white p-16 my-8">
 
                 <h3>Paginas creadas</h3>
-                    
+
                 <table>
                     <thead class="w-full p-0 m-0 text-center" >
                             <tr>
@@ -21,7 +21,7 @@
                             </tr>
                     </thead>
                         
-                    <tbody *ngFor="let page of pages" class="w-full p-0 m-0 text-center" >
+                    <tbody *ngFor="let page of pages" [ngStyle]="{'width':'100%','padding':0,'margin':0}">
                             <tr>
                                 <td>{{page.title}} </td>
                                 <td> {{"/"+page.title.replace(" ","-")}} </td>
@@ -31,8 +31,8 @@
                             </tr>
                     </tbody>
                 </table>
-         
+
             </div>
-   
+
     </div>
 </div>
