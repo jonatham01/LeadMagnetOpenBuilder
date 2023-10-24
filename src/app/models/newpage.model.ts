@@ -19,6 +19,6 @@ export interface NewPage {
   }
 
   export interface ReponseNewPage extends NewPage{
-    id:string
+    id:number
   }
   

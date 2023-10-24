@@ -17,7 +17,7 @@ export class ContainerService {
     private http:HttpClient,
   ) { }
 
-  createContainer(container:LandingComponentDTO,page:Pages, pageId:number|string){
+  createContainer(container:LandingComponentDTO,page:Pages, pageId:number){
     
     this.http.post<LandingContainerResponse>('/data/api/container/create',container).pipe(
       retry(3),
@@ -33,8 +33,8 @@ export class ContainerService {
     ).subscribe()
   }
 
-
-  createContainers(page:Pages, path:string, componentId:string, pageId:string, ide:string){
+/*
+  createContainers(page:Pages, path:string, componentId:string, pageId:number, ide:string){
 
     const newPath=`${path}/${componentId}/containers`;
 
@@ -50,4 +50,5 @@ export class ContainerService {
       this.boxesService.createBoxes(page, newPath, newDoc.id, pageId,container.ide);
     });
   }
+*/
 }

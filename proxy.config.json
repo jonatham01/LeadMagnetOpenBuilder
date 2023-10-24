@@ -1,0 +1,81 @@
+{
+    "/data/api/user/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+    "/data/api/pages/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+    "/data/api/post/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+  
+    "/data/api/component/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+  
+  
+    "/data/api/container/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+  
+  
+    "/data/api/subcomponent/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+  
+    "/data/api/box/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+  
+    "/data/api/element/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+    
+    "/data/api/blog-category/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+    
+    "/data/api/category-blog/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    },
+    
+    "/data/api/post/category/*": {
+      "target": "http://localhost:5051",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  
+  
+  }
+  

@@ -19,23 +19,7 @@ export class ComponentService {
 
   ) { }
 
-  createComponents(uid:string,page:Pages,pageId:string){
-
-    let path = `${ uid }/landing/pages/${ pageId }/components`;
-
-    var componentDTO:LandingComponentDTO[]= page.component.map(component=>{
-        return{...component, pageId }
-    });
-
-    componentDTO.forEach((component) => {
-      const newDoc = doc( collection( FirebaseDB, path) );
-      setDoc( newDoc, component );
-      this.containerService.createContainers(page, path, newDoc.id, pageId,component.ide);
-    });
-
-  }
-  
-  createComponent(component:LandingComponentDTO,page:Pages, pageId:number|string){
+  createComponent(component:LandingComponentDTO,page:Pages, pageId:number){
     
     this.http.post<LandingComponentResponse>('/data/api/component/create',component).pipe(
       retry(3),
@@ -50,5 +34,23 @@ export class ComponentService {
       })
     ).subscribe();
   }
+
+  /*
+createComponents(uid:string,page:Pages,pageId:string|number){
+
+    let path = `${ uid }/landing/pages/${ pageId }/components`;
+
+    var componentDTO:LandingComponentDTO[]= page.component.map(component=>{
+        return{...component, pageId }
+    });
+
+    componentDTO.forEach((component) => {
+      const newDoc = doc( collection( FirebaseDB, path) );
+      setDoc( newDoc, component );
+      this.containerService.createContainers(page, path, newDoc.id, pageId,component.ide);
+    });
+
+  }
+  */
 
 }

@@ -20,7 +20,7 @@ export class PagesService {
     private http:HttpClient,
   ) { }
 
-  createNewPage(data:NewPage, uid:string, page:Pages){
+  createNewPage(data:NewPage, page:Pages){
 
     const path= `${this.newPageUrl}/create`;
     this.http.post<ReponseNewPage>(path,data).pipe(
@@ -34,7 +34,7 @@ export class PagesService {
       })
     ).subscribe();
   }
-
+/*
   createPage(data:NewPage, uid:string, page:Pages){
 
     const path = `${uid}/landing/pages`;
@@ -42,6 +42,7 @@ export class PagesService {
     setDoc(newDoc,data);
     this.componentService.createComponents(uid, page,newDoc.id)
   }
+*/
 
   loadPage( uid:string, name:string ){
 

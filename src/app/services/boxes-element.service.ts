@@ -17,7 +17,7 @@ export class BoxesElementService {
     private http:HttpClient,
   ) { }
 
-  createBox(box:LandingComponentDTO,page:Pages, pageId:number|string){
+  createBox(box:LandingComponentDTO,page:Pages, pageId:number){
 
     this.http.post<LandingBoxesResponse>('/data/api/subcomponent/create',box).pipe(
       retry(3),
@@ -28,8 +28,8 @@ export class BoxesElementService {
       })
     ).subscribe()
   }
-
-  createBoxes(page:Pages, path:string, componentId:string, pageId:string,ide:string){
+/*
+  createBoxes(page:Pages, path:string, componentId:string, pageId:number,ide:string){
 
     //console.log( ide);
    // console.log(path);
@@ -48,5 +48,6 @@ export class BoxesElementService {
       this.boxService.createBoxes(page,newPath,newDoc.id,pageId,box.ide);
     });
   }
+*/
   
 }

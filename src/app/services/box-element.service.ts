@@ -18,7 +18,7 @@ export class BoxElementService {
     private http:HttpClient,
   ) { }
 
-  createBox(box:LandingComponentDTO,page:Pages,pageId:string| number){
+  createBox(box:LandingComponentDTO,page:Pages,pageId: number){
     this.http.post<LandingBoxResponse>('/data/api/box/box',box).pipe(
       retry(3),
       tap(boxResponse => {
@@ -28,7 +28,7 @@ export class BoxElementService {
       })
     ).subscribe()
   }
-
+/*
   createBoxes(page:Pages, path:string, componentId:string, pageId:string,ide:string){
     
     const newPath = `${path}/${componentId}/box`
@@ -45,4 +45,5 @@ export class BoxElementService {
       this.elementService.createElements(page,newPath, newDoc.id,pageId,ide);
     });
   }
+*/
 }

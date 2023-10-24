@@ -45,7 +45,7 @@ export class PagesFormComponent implements OnInit{
   constructor(
     private authService: AuthService,
     private fileService:FileServiceService,
-    private pageService:PagesService, // createPage(data:NewPage, uid:string, page:Pages
+    private pageService:PagesService, 
   ){}
 
   ngOnInit(): void {
@@ -74,9 +74,8 @@ export class PagesFormComponent implements OnInit{
      tap(file => this.newPage.imageUrl = file.filename)
     )
     .subscribe(file=>{
-      this.pageService.createPage(
+      this.pageService.createNewPage(
         this.newPage,
-        this.newPage.user,
         this.pages[this.imageActive as number])
     } );
   }

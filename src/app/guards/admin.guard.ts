@@ -26,7 +26,7 @@ export class AdminGuard {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      
+      /* usuario firebase
       return  new Promise((myResolve, myReject) =>{
 
         onAuthStateChanged(FirebaseAuth, (user) =>{
@@ -42,14 +42,11 @@ export class AdminGuard {
         });
 
       });
-
-
-
-      /*
+      */
+    
       return this.authService.user$
       .pipe(
         map(user => {
-         
           if(!user) {
             this.router.navigate(['/login']);
             return false;
@@ -58,7 +55,7 @@ export class AdminGuard {
             return true
           }
         })
-      )*/
+      )
   
   }
 
