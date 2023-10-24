@@ -12,7 +12,7 @@ import { Pages } from '../models/Pages.model';
     component:[
     
     {
-      ide:'1',
+      ide:1,
 
       numeration:1,
 
@@ -42,7 +42,7 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'2',
+      ide:2,
 
       numeration:2,
 
@@ -75,9 +75,9 @@ import { Pages } from '../models/Pages.model';
     container:[
         
     {
-        ide:'1',
+        ide:1,
   
-        componentId:'1',
+        componentId:1,
   
         numeration:1,
   
@@ -97,9 +97,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'2',
+      ide:2,
 
-      componentId:'2',
+      componentId:2,
 
       numeration:1,
 
@@ -122,9 +122,9 @@ import { Pages } from '../models/Pages.model';
 //grupo
    boxes:[
     {
-        ide:'1',
+        ide:1,
   
-        componentId:'1',
+        componentId:1,
   
         numeration:1,
   
@@ -136,9 +136,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'2',
+      ide:2,
 
-      componentId:'2',
+      componentId:2,
 
       numeration:1,
 
@@ -151,9 +151,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'3',
+      ide:3,
 
-      componentId:'2',
+      componentId:2,
 
       numeration:2,
 
@@ -176,9 +176,9 @@ import { Pages } from '../models/Pages.model';
 */
     box:[
     {
-      ide:'1',
+      ide:1,
 
-      componentId:'1',
+      componentId:1,
 
       numeration:1,
 
@@ -283,9 +283,9 @@ import { Pages } from '../models/Pages.model';
     elements:[
     
     {
-      ide:'1',
+      ide:1,
 
-      componentId:'1',
+      componentId:1,
 
       numeration:1,
 
@@ -302,9 +302,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'2',
+      ide:2,
 
-      componentId:'1',
+      componentId:1,
 
       numeration:2,
 
@@ -325,9 +325,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'3',
+      ide:3,
 
-      componentId:'1',
+      componentId:1,
 
       numeration:3,
 
@@ -348,9 +348,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'4',
+      ide:4,
 
-      componentId:'2',
+      componentId:2,
 
       numeration:1,
 
@@ -363,9 +363,9 @@ import { Pages } from '../models/Pages.model';
     },
     
     {
-      ide:'5',
+      ide:5,
 
-      componentId:'3',
+      componentId:3,
 
       numeration:1,
 
@@ -383,9 +383,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'6',
+      ide:6,
 
-      componentId:'3',
+      componentId:3,
 
       numeration:2,
 
@@ -408,9 +408,9 @@ import { Pages } from '../models/Pages.model';
     },
     
     {
-      ide:'7',
+      ide:7,
 
-      componentId:'4',
+      componentId:4,
 
       numeration:1,
 
@@ -437,9 +437,9 @@ import { Pages } from '../models/Pages.model';
 
 
     {
-      ide:'8',
+      ide:8,
 
-      componentId:'5',
+      componentId:5,
 
       numeration:1,
 
@@ -458,9 +458,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'9',
+      ide:9,
 
-      componentId:'5',
+      componentId:5,
 
       numeration:2,
 
@@ -478,9 +478,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'10',
+      ide:10,
 
-      componentId:'5',
+      componentId:5,
 
       numeration:3,
 
@@ -502,9 +502,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'11',
+      ide:11,
 
-      componentId:'5',
+      componentId:5,
 
       numeration:4,
 
@@ -526,9 +526,9 @@ import { Pages } from '../models/Pages.model';
     },
 
     {
-      ide:'12',
+      ide:12,
 
-      componentId:'5',
+      componentId:5,
 
       numeration:5,
 
