@@ -104,7 +104,7 @@ export interface LandingComponent{
    }
 
    export interface LandingBoxDTO extends Partial<LandingComponent>{
-    boxesIde: string|number;
+    boxIde: string|number;
   }
 
    export interface LandingBoxResponse extends Partial<LandingComponent> {

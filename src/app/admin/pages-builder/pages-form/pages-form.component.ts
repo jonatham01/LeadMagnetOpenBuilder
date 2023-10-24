@@ -49,7 +49,7 @@ export class PagesFormComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.authService.user$.subscribe(data=>this.newPage.user = data?.uid);
+    this.authService.user$.subscribe(data=>this.newPage.user = data?.id);
   }
 
   onChangeImg(event: Event) {

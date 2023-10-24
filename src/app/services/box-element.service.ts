@@ -19,7 +19,7 @@ export class BoxElementService {
   ) { }
 
   createBox(box:LandingComponentDTO,page:Pages,pageId: number){
-    this.http.post<LandingBoxResponse>('/data/api/box/box',box).pipe(
+    this.http.post<LandingBoxResponse>('/data/api/box/create',box).pipe(
       retry(3),
       tap(boxResponse => {
         const filteredElements = page.elements.filter(data => { return data.componentId == boxResponse.boxIde});

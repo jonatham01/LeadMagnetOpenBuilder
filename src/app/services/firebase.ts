@@ -76,4 +76,18 @@
       this.elementService.createElements(page,newPath, newDoc.id,pageId,ide);
     });
   }
+
+
+   loadPage( uid:string, name:string ){
+
+    const title = name.replace("-"," ");
+    const path = `${uid}/landing/pages`;
+    const pageCollection = collection(FirebaseDB, path);
+    const doc = query(pageCollection, where("name", "==", title));
+    console.log(doc);
+
+  }
+
+
 */
+

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs';
+import { ReponseNewPage } from 'src/app/models/newpage.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { PagesService } from 'src/app/services/pages.service';
 
@@ -11,7 +12,7 @@ import { PagesService } from 'src/app/services/pages.service';
 })
 export class PagesPanelComponent implements OnInit{
 
-  pages:any[]= [];
+  pages:ReponseNewPage[]= [];
 
   user:any = {};
 
@@ -25,7 +26,8 @@ export class PagesPanelComponent implements OnInit{
   ngOnInit(): void {
     this.authService.user$.subscribe(userData => {
       this.user = userData;
-      this.pages = this.pageServices.showPages(userData?.uid);
+      this.pageServices.findPages().subscribe(dataPages=>this.pages=dataPages);
+      
 
     });
   }

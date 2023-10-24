@@ -22,13 +22,15 @@ export class PagesEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.user$.subscribe(userData => {
-      this.route.paramMap.pipe(
-        tap(params=>{
-          this.pageName = params.get('title')
-          if(this.pageName){this.pageService.loadPage(userData?.uid,this.pageName)}
-        })
-      );
+      ///
     });
+
+    this.route.paramMap.pipe(
+      tap(params=>{
+        this.pageName = params.get('title')
+        if(this.pageName){this.pageService.findByTitle(this.pageName)}
+      })
+    );
   }
 
 

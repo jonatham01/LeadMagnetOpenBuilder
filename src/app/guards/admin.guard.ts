@@ -28,15 +28,7 @@ export class AdminGuard {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-         if(this.tokenService.getToken()){
-          return true;
-         }
-         else{
-          this.router.navigate(['/login']);
-            return false;
-         }
-         
-      /*return this.authService.user$
+      return this.authService.user$
       .pipe(
         map(user => {
           if(!user) {
@@ -47,7 +39,7 @@ export class AdminGuard {
             return true
           }
         })
-      )*/
+      )
       
   
   }

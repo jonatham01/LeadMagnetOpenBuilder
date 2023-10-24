@@ -10,7 +10,7 @@ import { PagesBuilderComponent } from './pages-builder/pages-builder.component';
 import { PostsBuilderComponent } from './posts-builder/posts-builder.component';
 import { ProductsBuilderComponent } from './products-builder/products-builder.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PagesFormComponent } from './pages-builder/pages-form/pages-form.component';
 import { PagesTemplateFormComponent } from './pages-builder/pages-template-form/pages-template-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -20,6 +20,7 @@ import { PagesEditComponent } from './pages-edit/pages-edit.component';
 import { PageContentComponent } from './pages-edit/page-content/page-content.component';
 import { PageWidgetsComponent } from './pages-edit/page-widgets/page-widgets.component';
 import { PagesListComponent } from './pages-panel/pages-list/pages-list.component';
+import { TokenInterceptor } from '../interceptors/token.interceptor';
 
 
 
@@ -48,6 +49,9 @@ import { PagesListComponent } from './pages-panel/pages-list/pages-list.componen
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-  ]
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
 })
 export class AdminModule { }

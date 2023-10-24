@@ -35,6 +35,17 @@ export class PagesService {
     ).subscribe();
   }
 
+  findPages(){
+    return this.http.get<ReponseNewPage[]>(`${this.newPageUrl}/show`);
+  }
+
+  findByIdPages(id:number){
+    return this.http.get<any>(`${this.newPageUrl}/show/${id}`)
+  }
+
+  findByTitle(title:string){
+    return this.http.get<ReponseNewPage>(`${this.newPageUrl}/show/title/${title}`)
+  }
 
   loadPage( uid:string, name:string ){
 

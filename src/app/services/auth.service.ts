@@ -5,6 +5,7 @@ import { TokenService } from './token.service';
 import { HttpClient, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { AuthUser } from '../models/authUser.model';
 import { Router } from '@angular/router';
+import { checkTime } from '../interceptors/token.interceptor';
 
 
 @Injectable({
@@ -65,7 +66,7 @@ export class AuthService {
 
   getProfile(){
 
-    return this.http.post<UserLoad>(`${this.apiUrl}/profile`,this.token.getToken());
+    return this.http.post<UserLoad>(`${this.apiUrl}/profile`,this.token.getToken(),{context:checkTime()});
 
   }
 
@@ -140,8 +141,6 @@ export class AuthService {
       (user)=>{
         if(user){
           this.user.next(user);
-          
-          
           this.router.navigateByUrl('/admin');
         }
       }

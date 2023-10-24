@@ -6,6 +6,11 @@ import { PagesEditComponent } from './pages-edit/pages-edit.component';
 
 const routes: Routes = [
   {
+    path:'',
+    redirectTo:'/admin/pagesbuilder',
+    pathMatch:'full'
+  },
+  {
     path:'pagesbuilder',
     component:PagesBuilderComponent
   },

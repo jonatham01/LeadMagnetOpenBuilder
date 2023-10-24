@@ -43,14 +43,10 @@ export class LoginComponent implements OnInit {
     else{
       this.loginData.emailError = false;
       this.loginData.passError=false;
-      this.authService.login(this.loginData.email,this.loginData.password);
+      this.authService.toLogin(this.loginData.email,this.loginData.password);
     }
     
   }
 
-   toLoginWithGoogle(){
-    this.authService.loginWithGoogle().then(data=>{
-   });
-  }
 
 }
