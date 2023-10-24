@@ -28,22 +28,5 @@ export class BoxElementService {
       })
     ).subscribe()
   }
-/*
-  createBoxes(page:Pages, path:string, componentId:string, pageId:string,ide:string){
-    
-    const newPath = `${path}/${componentId}/box`
 
-    const filterBoxes = page.box.filter(data => data.componentId === ide);
-
-    const boxes = filterBoxes.map( box => {
-      return {...box, componentId,pageId}
-    });
-
-    boxes.forEach( box => {
-      const newDoc = doc( collection(FirebaseDB, newPath) );
-      setDoc( newDoc, box);
-      this.elementService.createElements(page,newPath, newDoc.id,pageId,ide);
-    });
-  }
-*/
 }

@@ -33,22 +33,5 @@ export class ContainerService {
     ).subscribe()
   }
 
-/*
-  createContainers(page:Pages, path:string, componentId:string, pageId:number, ide:string){
 
-    const newPath=`${path}/${componentId}/containers`;
-
-    const containers = page.container.filter(data =>  data.componentId == ide);
-
-    const containersDTO:LandingComponentDTO[]= containers.map(contentData=>{
-        return{ ...contentData,componentId,pageId}
-    });
-
-    containersDTO.forEach(container => {
-      const newDoc = doc(collection(FirebaseDB,newPath) );
-      setDoc(newDoc,container);
-      this.boxesService.createBoxes(page, newPath, newDoc.id, pageId,container.ide);
-    });
-  }
-*/
 }

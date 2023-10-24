@@ -6,7 +6,7 @@ export interface NewPage {
     imageUrl:string;
     state:string;
     main:boolean;
-    user:string;
+    user:string|number;
     
   }
 

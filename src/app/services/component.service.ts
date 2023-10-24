@@ -35,22 +35,5 @@ export class ComponentService {
     ).subscribe();
   }
 
-  /*
-createComponents(uid:string,page:Pages,pageId:string|number){
-
-    let path = `${ uid }/landing/pages/${ pageId }/components`;
-
-    var componentDTO:LandingComponentDTO[]= page.component.map(component=>{
-        return{...component, pageId }
-    });
-
-    componentDTO.forEach((component) => {
-      const newDoc = doc( collection( FirebaseDB, path) );
-      setDoc( newDoc, component );
-      this.containerService.createContainers(page, path, newDoc.id, pageId,component.ide);
-    });
-
-  }
-  */
 
 }

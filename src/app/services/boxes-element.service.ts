@@ -28,26 +28,5 @@ export class BoxesElementService {
       })
     ).subscribe()
   }
-/*
-  createBoxes(page:Pages, path:string, componentId:string, pageId:number,ide:string){
 
-    //console.log( ide);
-   // console.log(path);
-
-    const newPath = `${path}/${componentId}/boxes`;
-
-    const boxes = page.boxes.filter(data => data.componentId == ide );
-    
-    const boxesDTO:LandingComponentDTO[] = boxes.map(data  => {
-      return{...data,componentId,pageId}
-    });
-
-    boxesDTO.forEach(box => {
-      const newDoc = doc( collection( FirebaseDB, newPath) );
-      setDoc(newDoc,box);
-      this.boxService.createBoxes(page,newPath,newDoc.id,pageId,box.ide);
-    });
-  }
-*/
-  
 }

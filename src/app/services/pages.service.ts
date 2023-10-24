@@ -34,15 +34,7 @@ export class PagesService {
       })
     ).subscribe();
   }
-/*
-  createPage(data:NewPage, uid:string, page:Pages){
 
-    const path = `${uid}/landing/pages`;
-    const newDoc = doc( collection(FirebaseDB, path) );
-    setDoc(newDoc,data);
-    this.componentService.createComponents(uid, page,newDoc.id)
-  }
-*/
 
   loadPage( uid:string, name:string ){
 

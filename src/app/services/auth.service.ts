@@ -1,18 +1,157 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, catchError, switchMap, tap, throwError } from 'rxjs';
+import { CreateUserDTO, User, UserLoad } from '../models/user.model';
+import { TokenService } from './token.service';
+import { HttpClient, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
+import { AuthUser } from '../models/authUser.model';
 import { Router } from '@angular/router';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
-
-import { User, UserDTO, UserLoad, UserLogin} from '../models/user.model';
-import { FirebaseAuth, FirebaseDB } from '../firebase/config';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { doc, setDoc } from 'firebase/firestore/lite';
 
 
 @Injectable({
   providedIn: 'root'
 })
+export class AuthService {
+
+  //private apiUrl = `${environment.URL}/data/api/user`;
+  
+  private apiUrl:string = '/data/api/user';
+
+  private user = new BehaviorSubject<UserLoad | null>(null);
+
+  user$ = this.user.asObservable();
+
+  constructor(
+    private token: TokenService,
+    private http: HttpClient,  
+    private router: Router
+    ) { }
+
+  login(email:string,password:string){
+
+    return this.http.post<AuthUser>(`${this.apiUrl}/login/autenticated`,{email,password})
+
+    .pipe(
+
+      tap(response => {this.token.save(response.jwt);}),
+
+      catchError((error: HttpErrorResponse,) => {
+
+        if (error.status === HttpStatusCode.Conflict) {
+
+          return throwError('Algo esta fallando en el server');
+
+        }
+
+        if (error.status === HttpStatusCode.NotFound) {
+
+          return throwError('No existe');
+
+        }
+
+        if (error.status === HttpStatusCode.Unauthorized) {
+
+          return throwError('No estas permitido');
+
+        }
+        return throwError(error.message);
+        
+    })
+
+    ); 
+
+
+
+  }
+
+  getProfile(){
+
+    return this.http.post<UserLoad>(`${this.apiUrl}/profile`,this.token.getToken());
+
+  }
+
+  loginAndGet(email:string,password:string){
+
+    return this.login(email, password)
+    .pipe(
+      
+      switchMap(() => this.getProfile()),
+      
+      )
+
+  }
+
+  logOut(){
+
+    this.token.removeToken();
+
+    this.user.next(null);
+  }
+
+  getCurrentUser() {
+
+    const access = this.token.getToken();
+
+    if (access) {
+
+      this.getProfile()
+
+      .subscribe()
+
+    }
+
+  }
+
+  create(user:CreateUserDTO){
+
+    return this.http.post<AuthUser>(`${this.apiUrl}/save/autenticated`,user)
+
+    .pipe(
+
+      tap(response => this.token.save(response.jwt)),
+
+      catchError((error: HttpErrorResponse,) => {
+
+        if (error.status === HttpStatusCode.Conflict) {
+
+          return throwError('Algo esta fallando en el server');
+
+        }
+
+        if (error.status === HttpStatusCode.NotFound) {
+
+          return throwError('No existe');
+
+        }
+
+        if (error.status === HttpStatusCode.Unauthorized) {
+
+          return throwError('No estas permitido');
+
+        }
+        return throwError(error.message);
+        
+    })
+
+    ); 
+  }
+  
+  toLogin(email:string,password:string){
+    this.loginAndGet(email,password).subscribe(
+      (user)=>{
+        if(user){
+          this.user.next(user);
+          
+          
+          this.router.navigateByUrl('/admin');
+        }
+      }
+    );
+    
+  }
+}
+
+
+/*
 export class AuthService {
 
   private user = new BehaviorSubject< UserLoad | null >(null);
@@ -21,8 +160,6 @@ export class AuthService {
 
   constructor(
     private router: Router,
-    //public afs: AngularFirestore,
-    //public afAuth: AngularFireAuth
   ) { }
 
   validateUser(uid:string,displayName:string,email:string){
@@ -120,12 +257,4 @@ export class AuthService {
 
 
 
-}
-
-  /*async loginWithGoogle(){
-    this.afAuth.signInWithPopup(new GoogleAuthProvider())
-  }*/
-
-    //
-    //private googleProvider:GoogleAuthProvider,
-    //const result = signInWithPopup(FirebaseAuth, this.googleProvider );
+}*/

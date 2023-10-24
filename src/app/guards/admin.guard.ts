@@ -9,6 +9,7 @@ import { AuthService } from './../services/auth.service';
 import { getAuth } from "firebase/auth";
 import { FirebaseAuth } from '../firebase/config';
 import { onAuthStateChanged } from 'firebase/auth';
+import { TokenService } from '../services/token.service';
 
 
 @Injectable({
@@ -18,7 +19,8 @@ export class AdminGuard {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private tokenService:TokenService
   ) {}
 
 
@@ -26,25 +28,15 @@ export class AdminGuard {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      /* usuario firebase
-      return  new Promise((myResolve, myReject) =>{
-
-        onAuthStateChanged(FirebaseAuth, (user) =>{
-          if ( user ) {
-            const { uid, email, displayName} = user;
-            if (displayName && email) {this.authService.validateUser(uid, displayName, email,);}
-            myResolve(true);
-          }
-          else{
-            myResolve(false);
-          }
-          
-        });
-
-      });
-      */
-    
-      return this.authService.user$
+         if(this.tokenService.getToken()){
+          return true;
+         }
+         else{
+          this.router.navigate(['/login']);
+            return false;
+         }
+         
+      /*return this.authService.user$
       .pipe(
         map(user => {
           if(!user) {
@@ -55,7 +47,8 @@ export class AdminGuard {
             return true
           }
         })
-      )
+      )*/
+      
   
   }
 
