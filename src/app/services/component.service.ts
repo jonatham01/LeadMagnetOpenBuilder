@@ -37,7 +37,7 @@ export class ComponentService {
   
   createComponent(component:LandingComponentDTO,page:Pages, pageId:number|string){
     
-    this.http.post<any>('/data/api/component/create',component).pipe(
+    this.http.post<LandingComponentResponse>('/data/api/component/create',component).pipe(
       retry(3),
       tap( componentResponse => {
 

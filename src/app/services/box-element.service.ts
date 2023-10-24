@@ -3,9 +3,10 @@ import { Pages } from '../models/Pages.model';
 import { collection, doc, setDoc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../firebase/config';
 import { LandingElementService } from './landing-element.service';
-import { LandingComponentDTO } from '../models/LandingComponent.model';
+import { LandingBoxResponse, LandingComponentDTO } from '../models/LandingComponent.model';
 import { HttpClient } from '@angular/common/http';
 import { retry, tap } from 'rxjs';
+import { LandingElementDTO } from '../models/LandingElement.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,12 @@ export class BoxElementService {
   ) { }
 
   createBox(box:LandingComponentDTO,page:Pages,pageId:string| number){
-    this.http.post<any>('/data/api/box/box',box).pipe(
+    this.http.post<LandingBoxResponse>('/data/api/box/box',box).pipe(
       retry(3),
       tap(boxResponse => {
-        const filteredBoxes = page.box.filter(data => { return data.componentId == boxResponse.ide});
-        const boxesDTO = filteredBoxes.map( data => { return {...data,pageId,componentId:boxResponse.id} });
-        boxesDTO.forEach(data=> this.elementService.createElement(data,page,pageId));
+        const filteredElements = page.elements.filter(data => { return data.componentId == boxResponse.boxIde});
+        const elementsDTO:LandingElementDTO[] = filteredElements.map( data => { return {...data,pageId,componentId:boxResponse.id} });
+        elementsDTO.forEach(data=> this.elementService.createElement(data,page,pageId));
       })
     ).subscribe()
   }

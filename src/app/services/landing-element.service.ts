@@ -3,7 +3,7 @@ import { LandingComponentResponse } from '../models/LandingComponent.model';
 import { Pages } from '../models/Pages.model';
 import { collection, doc, setDoc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../firebase/config';
-import { LandingElementDTO } from '../models/LandingElement.model';
+import { LandingElementDTO, LandingElementResponse } from '../models/LandingElement.model';
 import { HttpClient } from '@angular/common/http';
 import { retry } from 'rxjs';
 
@@ -18,9 +18,8 @@ export class LandingElementService {
   ) { }
 
   createElement(element:LandingElementDTO,page:Pages ,pageId:string|number){
-    this.http.post<any>('/data/api/element/create',element).subscribe(
-      retry(3)
-    );
+    this.http.post<LandingElementResponse>('/data/api/element/create',element).pipe(retry(3))
+    .subscribe( );
   }
 
   createElements(page:Pages, path:string, componentId:string, pageId:string,ide:string){

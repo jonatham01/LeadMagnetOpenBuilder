@@ -89,7 +89,7 @@ export interface LandingComponent{
     containerIde: string|number;
   }
 
-   export interface LandingContainertResponse extends Partial<LandingComponent> {
+   export interface LandingContainerResponse extends Partial<LandingComponent> {
     id:string|number,
     containerIde: string|number,
    }
