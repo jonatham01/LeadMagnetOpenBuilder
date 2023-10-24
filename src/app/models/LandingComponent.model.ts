@@ -54,7 +54,8 @@ export interface LandingComponent{
     componentId:string|number,
     pageId:string|number,
     numeration:number,
-    id:string,
+    id:string|number,
+    level?:number,
    
     name:string,
     title:string,
@@ -73,14 +74,41 @@ export interface LandingComponent{
     numelement:number,
     deleted:boolean
     
-    
   }
 
   export interface LandingComponentDTO extends Partial<LandingComponent>{
-    ide: string;
+    ide: string|number;
   }
 
   export interface LandingComponentResponse extends Partial<LandingComponent> {
-    id:string;
-    ide: string;
+    id:string|number,
+    ide: string|number,
    }
+
+   export interface LandingContainerDTO extends Partial<LandingComponent>{
+    containerIde: string|number;
+  }
+
+   export interface LandingContainertResponse extends Partial<LandingComponent> {
+    id:string|number,
+    containerIde: string|number,
+   }
+
+   export interface LandingBoxesDTO extends Partial<LandingComponent>{
+    boxesIde: string|number;
+  }
+
+   export interface LandingBoxesResponse extends Partial<LandingComponent> {
+    id:string|number,
+    boxesIde: string|number,
+   }
+
+   export interface LandingBoxDTO extends Partial<LandingComponent>{
+    boxesIde: string|number;
+  }
+
+   export interface LandingBoxResponse extends Partial<LandingComponent> {
+    id:string|number,
+    boxIde: string|number,
+   }
+
