@@ -7,6 +7,7 @@ export interface NewPage {
     state:string;
     main:boolean;
     user:string|number;
+    userName?:string;
     
   }
 
@@ -16,6 +17,7 @@ export interface NewPage {
     title:boolean;
     imageUrl:boolean;
     state:boolean;
+    username?:string;
   }
 
   export interface ReponseNewPage extends NewPage{

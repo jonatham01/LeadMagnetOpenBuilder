@@ -33,5 +33,11 @@ export class ContainerService {
     ).subscribe()
   }
 
+  findAllByIdPage(id:number){
+
+    return this.http.get<any>(`/data/api/container/show/page/${id}`);
+    
+  }
+
 
 }

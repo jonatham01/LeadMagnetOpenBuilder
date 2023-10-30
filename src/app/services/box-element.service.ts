@@ -29,4 +29,9 @@ export class BoxElementService {
     ).subscribe()
   }
 
+  findAllByIdPage(id:number){
+
+    return this.http.get<any>(`/data/api/box/show/page/${id}`);
+    
+  }
 }

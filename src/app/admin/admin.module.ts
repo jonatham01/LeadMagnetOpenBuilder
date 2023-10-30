@@ -21,6 +21,16 @@ import { PageContentComponent } from './pages-edit/page-content/page-content.com
 import { PageWidgetsComponent } from './pages-edit/page-widgets/page-widgets.component';
 import { PagesListComponent } from './pages-panel/pages-list/pages-list.component';
 import { TokenInterceptor } from '../interceptors/token.interceptor';
+import { PageComponentsComponent } from './pages-edit/page-components/page-components.component';
+import { PageComponentComponent } from './pages-edit/page-component/page-component.component';
+import { PageContainersComponent } from './pages-edit/page-containers/page-containers.component';
+import { PageContainerComponent } from './pages-edit/page-container/page-container.component';
+import { PageSubcomponentsComponent } from './pages-edit/page-subcomponents/page-subcomponents.component';
+import { PageSubcomponentComponent } from './pages-edit/page-subcomponent/page-subcomponent.component';
+import { PageBoxesComponent } from './pages-edit/page-boxes/page-boxes.component';
+import { PageBoxComponent } from './pages-edit/page-box/page-box.component';
+import { PageElementsComponent } from './pages-edit/page-elements/page-elements.component';
+import { PageElementComponent } from './pages-edit/page-element/page-element.component';
 
 
 
@@ -41,7 +51,17 @@ import { TokenInterceptor } from '../interceptors/token.interceptor';
     PagesEditComponent,
     PageContentComponent,
     PageWidgetsComponent,
-    PagesListComponent
+    PagesListComponent,
+    PageComponentsComponent,
+    PageComponentComponent,
+    PageContainersComponent,
+    PageContainerComponent,
+    PageSubcomponentsComponent,
+    PageSubcomponentComponent,
+    PageBoxesComponent,
+    PageBoxComponent,
+    PageElementsComponent,
+    PageElementComponent
   ],
   imports: [
     CommonModule,

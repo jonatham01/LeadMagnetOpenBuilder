@@ -35,5 +35,10 @@ export class ComponentService {
     ).subscribe();
   }
 
+  findComponentsByIdPage(id:number){
+    
+    return this.http.get<LandingComponentResponse[]>(`/data/api/component/show/page/${id}`);
+    
+  }
 
 }

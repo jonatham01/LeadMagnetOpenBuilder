@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, tap } from 'rxjs';
+import { retry, switchMap, tap } from 'rxjs';
+import { LandingBoxResponse, LandingBoxesResponse, LandingComponentResponse, LandingContainerResponse } from 'src/app/models/LandingComponent.model';
+import { LandingElementResponse } from 'src/app/models/LandingElement.model';
+import { ReponseNewPage } from 'src/app/models/newpage.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { PagesService } from 'src/app/services/pages.service';
 
@@ -11,9 +14,26 @@ import { PagesService } from 'src/app/services/pages.service';
 })
 export class PagesEditComponent implements OnInit {
 
-  pageName:string|null =null;
+  pageName:string ='';
+  page:ReponseNewPage = {
+    id:1,
+    name:'',
+    resume:'',
+    title:'',
+    imageUrl:'',
+    state:'',
+    main:false,
+    user:1,
+    userName:''
+  };
 
-  
+
+ 
+  containers:LandingContainerResponse[] | null = null;
+  subcomponents:LandingBoxesResponse[] | null = null;
+  boxes:LandingBoxResponse[] | null = null;
+  elements: LandingElementResponse[] | null = null;
+
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
@@ -27,10 +47,16 @@ export class PagesEditComponent implements OnInit {
 
     this.route.paramMap.pipe(
       tap(params=>{
-        this.pageName = params.get('title')
-        if(this.pageName){this.pageService.findByTitle(this.pageName)}
+        this.pageName = params.get('title') as string;
+        
+          this.pageService.findByTitle(this.pageName).pipe(
+           
+          ).subscribe( pageData=>{
+            this.page = pageData;
+          });
+        
       })
-    );
+    ).subscribe();
   }
 
 

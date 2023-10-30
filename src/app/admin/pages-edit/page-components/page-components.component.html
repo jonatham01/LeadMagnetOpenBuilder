@@ -1,0 +1,22 @@
+
+    <app-page-containers
+        id={{component.id}}
+        *ngFor ="let component of components"
+        [ngStyle]="{
+            'padding-top': component.paddingtop +'px',
+            'padding-bottom': component.paddingbottom +'px',
+            'padding-left': component.paddingleft +'px',
+            'padding-right': component.paddingright +'px',
+    
+            'margin-top': component.margintop  +'px',
+            'margin-bottom': component.marginbottom +'px',
+            'margin-left': component.marginleft +'px',
+            'margin-right': component.marginright  +'px',
+    
+            'display': component.display,
+            'justify-content': component.justifycontent,
+            'background-color': component.backgroundcolor
+        }"
+        >
+    </app-page-containers>
+

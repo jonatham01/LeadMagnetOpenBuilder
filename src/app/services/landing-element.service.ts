@@ -13,6 +13,8 @@ import { retry } from 'rxjs';
 })
 export class LandingElementService {
 
+  private url = '/data/api/element';
+
   constructor(
     private http:HttpClient,
   ) { }
@@ -37,6 +39,26 @@ export class LandingElementService {
       setDoc( newDoc, element );
     })
 
+  }
+
+  findAllByIdPage(id:number){
+
+    return this.http.get<any>(`${this.url}/show/page/${id}`);
+    
+  }
+
+  deleteElement(id:number){
+    return this.http.delete<any>(`${this.url}/delete/${id}`);
+  }
+
+  update(id:number,element:LandingElementDTO){
+    return this.http.put<LandingElementResponse>(`${this.url}/update/${id}`,element)
+  }
+
+  updateElements(id:number,element:LandingElementDTO[]){
+    element.forEach(element=>{
+      this.update(id,element);
+    });
   }
 
 
