@@ -10,7 +10,7 @@ import { ComponentService } from 'src/app/services/component.service';
 })
 export class PageComponentsComponent implements OnInit {
 
-  @Input() pageId!:number;
+  @Input() pageId:number =1;
 
   components:LandingComponentResponse[] = [];
 
@@ -29,6 +29,6 @@ export class PageComponentsComponent implements OnInit {
         this.components = data;
       });
     }
-}
+  }
 
 }

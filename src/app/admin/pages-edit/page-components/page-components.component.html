@@ -1,6 +1,8 @@
 
     <app-page-containers
         id={{component.id}}
+        [pageId]="pageId"
+        [componentId]="component.id"
         *ngFor ="let component of components"
         [ngStyle]="{
             'padding-top': component.paddingtop +'px',

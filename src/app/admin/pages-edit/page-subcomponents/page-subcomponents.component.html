@@ -1,1 +1,12 @@
-<p>page-subcomponents works!</p>
+<app-page-boxes
+    id={{subcomponent.id}}
+    [pageId]="pageId"
+    [subcomponentId]="subcomponent.id"
+    *ngFor ="let subcomponent of boxes"
+    [ngStyle]="{
+        'display': subcomponent.display,
+        'grid-template-columns': subcomponent.gridtemplatecolumns,
+        'gap':  subcomponent.gap +'px'
+    }"
+>
+</app-page-boxes>

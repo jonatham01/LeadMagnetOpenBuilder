@@ -1,1 +1,17 @@
-<p>page-containers works!</p>
+<app-page-subcomponents
+    id={{container.id}}
+    [pageId]="pageId"
+    [containerId]="container.id"
+    *ngFor ="let container of containers"
+    [ngStyle]="{
+        'display': container.display,
+        'width':container.width,
+        'padding-top': container.paddingtop + 'px',
+        'padding-bottom': container.paddingbottom +'px',
+        'padding-left':container.paddingleft +'px',
+        'padding-right':container.paddingright +'px',
+        'flex-direction': container.flexdirection
+    }"
+>
+</app-page-subcomponents>
+
