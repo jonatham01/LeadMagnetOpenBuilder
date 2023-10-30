@@ -27,6 +27,7 @@ export class PageComponentsComponent implements OnInit {
       this.componentService.findComponentsByIdPage(this.pageId).pipe(retry(3))
       .subscribe( data => {
         this.components = data;
+        console.log(this.pageId)
       });
     }
   }

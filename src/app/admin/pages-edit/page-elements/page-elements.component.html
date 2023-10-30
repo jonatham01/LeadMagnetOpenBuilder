@@ -1,1 +1,160 @@
-<p>page-elements works!</p>
+<div [ngSwitch]="dataElemento.tag"  
+
+        *ngFor="let dataElemento of elements" 
+        [ngStyle]="{
+            'width':'100%',
+            'display': boxWidth,
+            'align-items': boxAlign,
+            'flex-direction': boxDirection,
+            'justify-content':boxJustify
+        }"
+        >
+
+                                <h1 *ngSwitchCase="'h1'" [ngStyle]="{
+                                    'font-size': dataElemento.fontsize +'px',
+                                    'font-family': dataElemento.fontfamily,
+                                    'color': dataElemento.color,
+                                    'margin-top': dataElemento.margintop  +'px',
+                                    'margin-bottom': dataElemento.marginbottom +'px',
+                                    'margin-left': dataElemento.marginleft +'px',
+                                    'margin-right': dataElemento.marginright  +'px',
+                                    'text-align':dataElemento.align,
+                                    'background-color':dataElemento.backgroundcolor,
+                                    'padding-top': dataElemento.paddingtop +'px',
+                                    'padding-bottom':dataElemento.paddingbottom +'px',
+                                    'padding-left': dataElemento.paddingleft +'px',
+                                    'padding-right': dataElemento.paddingright +'px'
+                                }" >
+                                {{dataElemento.content}}
+                                </h1>
+
+                                <h2 *ngSwitchCase="'h2'"[ngStyle]="{
+                                    'font-size': dataElemento.fontsize +'px',
+                                    'font-family': dataElemento.fontfamily,
+                                    'color': dataElemento.color,
+                                    'margin-top': dataElemento.margintop  +'px',
+                                    'margin-bottom': dataElemento.marginbottom +'px',
+                                    'margin-left': dataElemento.marginleft +'px',
+                                    'margin-right': dataElemento.marginright  +'px',
+                                    'text-align':dataElemento.align,
+                                    'background-color':dataElemento.backgroundcolor,
+                                    'padding-top': dataElemento.paddingtop +'px',
+                                    'padding-bottom':dataElemento.paddingbottom +'px',
+                                    'padding-left': dataElemento.paddingleft +'px',
+                                    'padding-right': dataElemento.paddingright +'px'
+                                }" >
+                                {{dataElemento.content}}
+                                </h2>
+
+                                <h3 *ngSwitchCase="'h3'"[ngStyle]="{
+                                    'font-size': dataElemento.fontsize +'px',
+                                    'font-family': dataElemento.fontfamily,
+                                    'color': dataElemento.color,
+                                    'margin-top': dataElemento.margintop  +'px',
+                                    'margin-bottom': dataElemento.marginbottom +'px',
+                                    'margin-left': dataElemento.marginleft +'px',
+                                    'margin-right': dataElemento.marginright  +'px',
+                                    'text-align':dataElemento.align,
+                                    'background-color':dataElemento.backgroundcolor,
+                                    'padding-top': dataElemento.paddingtop +'px',
+                                    'padding-bottom':dataElemento.paddingbottom +'px',
+                                    'padding-left': dataElemento.paddingleft +'px',
+                                    'padding-right': dataElemento.paddingright +'px'
+                                }" >
+                                {{dataElemento.content}}
+                                </h3>
+
+                                <p *ngSwitchCase="'p'" [ngStyle]="{
+                                    'font-size': dataElemento.fontsize +'px' ,
+                                    'font-weight': dataElemento.fontweight,
+                                    'line-height': dataElemento.lineheight +'px',
+                                    'font-family': dataElemento.fontfamily,
+                                    'color': dataElemento.color,
+                                    'margin-top': dataElemento.margintop  +'px',
+                                    'margin-bottom': dataElemento.marginbottom +'px',
+                                    'margin-left': dataElemento.marginleft +'px',
+                                    'margin-right': dataElemento.marginright  +'px',
+                                    'text-align':dataElemento.align,
+                                    'background-color':dataElemento.backgroundcolor,
+                                    'padding-top': dataElemento.paddingtop +'px',
+                                    'padding-bottom':dataElemento.paddingbottom +'px',
+                                    'padding-left': dataElemento.paddingleft +'px',
+                                    'padding-right': dataElemento.paddingright +'px'
+                                }" >
+                                    {{dataElemento.content}}
+                                </p>
+
+                                <button *ngSwitchCase="'button'" [ngStyle]="{
+                                    'width':dataElemento.width,
+                                    'padding-top': dataElemento.paddingtop +'px',
+                                    'padding-bottom':dataElemento.paddingbottom +'px',
+                                    'padding-left': dataElemento.paddingleft +'px',
+                                    'padding-right': dataElemento.paddingright +'px',
+                                    'font-size':dataElemento.fontsize +'px',
+                                    'font-family': dataElemento.fontfamily,
+                                    'border-radius': dataElemento.borderradius,
+                                    'color': dataElemento.color,
+                                    'background-color':dataElemento.backgroundcolor,
+                                    'margin-top': dataElemento.margintop  +'px',
+                                    'margin-bottom': dataElemento.marginbottom +'px',
+                                    'margin-left': dataElemento.marginleft +'px',
+                                    'margin-right': dataElemento.marginright  +'px'
+                                    
+                                }" >
+                                    {{dataElemento.content}}
+                                </button>
+
+                                <img  *ngSwitchCase="'img'" [src]="dataElemento.content" 
+                                [ngStyle]="{
+                                    'width':dataElemento.width,
+                                    'border-color':dataElemento.bordercolor,
+                                    'border-style':dataElemento.borderstyle,
+                                    'border-width': dataElemento.borderwidth +'px',
+                                    'height':dataElemento.height+'px',
+                                    'border-radius':'10%',
+                                    'padding-top': dataElemento.paddingtop +'px',
+                                    'padding-bottom':dataElemento.paddingbottom +'px',
+                                    'padding-left': dataElemento.paddingleft +'px',
+                                    'padding-right': dataElemento.paddingright +'px',
+                                    'background-color':dataElemento.backgroundcolor,
+                                    'margin-top': dataElemento.margintop  +'px',
+                                    'margin-bottom': dataElemento.marginbottom +'px',
+                                    'margin-left': dataElemento.marginleft +'px',
+                                    'margin-right': dataElemento.marginright  +'px'
+                                    
+                                }" >
+                                <ul *ngSwitchCase="'ul'" [ngStyle]="{
+                                    'font-size': dataElemento.fontsize +'px',
+                                    'font-weight':dataElemento.fontweight +'px',
+                                    'padding-top': dataElemento.paddingtop + 'px',
+                                    'margin-top':dataElemento.margintop +'px',
+                                    'color': dataElemento.color
+                                }" >
+                                    <li  *ngFor="let item of returnListaElementos(dataElemento)">
+                                        {{item}}
+                                    </li>
+                                </ul>
+
+                                
+
+                                <iframe *ngSwitchCase="'video'" 
+
+                                [src]="dataElemento.video"
+
+                                width="100%" height="315" 
+                            
+                                allow="accelerometer; autoplay; 
+                                clipboard-write; encrypted-media;
+                                gyroscope; picture-in-picture; 
+                                web-share"
+                                
+                                allowfullscreen>
+                            
+                                </iframe>
+                
+
+                                <p *ngSwitchDefault>
+                                    No hay ningún contenido
+                                </p>
+
+        </div>

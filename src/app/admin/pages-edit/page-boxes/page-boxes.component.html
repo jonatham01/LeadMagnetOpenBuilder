@@ -1,4 +1,20 @@
 <app-page-elements
-  
+    id={{box.id}}
+    [pageId]="pageId"
+    [boxId]="box.id"
+    [boxWidth]="box.width"
+    [boxDisplay]="box.display"
+    [boxAlign]="box.alignitems"
+    [boxDirection]="box.flexdirection"
+    [boxJustify]="box.justifycontent"
+    *ngFor ="let box of boxes"
+    [ngStyle]="{
+        'display': box.display,
+        'align-items': box.alignitems,
+        'flex-direction': box.flexdirection,
+        'justify-content': box.justifycontent,
+        'border':box.border,
+        'padding': box.padding
+    }"
 >
 </app-page-elements>

@@ -1,4 +1,6 @@
-import { LandingComponent } from "./LandingComponent.model"
+import { LandingComponent } from "./LandingComponent.model";
+import {SafeResourceUrl } from '@angular/platform-browser';
+
 
 export interface LandingElementDTO extends Partial<LandingComponent> {
 
@@ -12,4 +14,5 @@ export interface LandingElementDTO extends Partial<LandingComponent> {
     content:string,
     numeration:number,
     componentId:string| number,
+    video?:SafeResourceUrl,
    }
