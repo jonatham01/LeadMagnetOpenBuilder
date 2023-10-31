@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { retry } from 'rxjs';
@@ -18,7 +19,8 @@ export class PageElementsComponent implements OnInit{
   @Input()boxAlign:string | undefined="";
   @Input()boxDirection:string | undefined="";
   @Input()boxJustify:string | undefined="";
-  elements:LandingElementResponse[]=[];
+  @Input() elements!: LandingElementResponse[];
+  elementsFiltered:LandingElementResponse[]=[];
   videos:any[]=[]
 
   
@@ -30,6 +32,8 @@ export class PageElementsComponent implements OnInit{
 
   ngOnChanges(changes: SimpleChanges) {
     if(this.boxId){
+      this.elements = this.elements.filter((data: { componentId: string | number; })=>{ return data.componentId == this.boxId})
+      /*
       this.elementService.findAllByIdPage(this.pageId).pipe(retry(3))
       .subscribe( data => {
         this.elements = data.filter((data: { componentId: string | number; })=>{ return data.componentId == this.boxId})
@@ -41,9 +45,8 @@ export class PageElementsComponent implements OnInit{
           }
           else{return element}
         })
-      });
+      });*/
     };
-    console.log(this.videos)
     }
   
 
@@ -55,6 +58,21 @@ export class PageElementsComponent implements OnInit{
     var urlvideo=this._sanitizer.bypassSecurityTrustResourceUrl(video);
     console.log(urlvideo);
     return urlvideo;
-    
   }
+
+  drop(event: CdkDragDrop<LandingElementResponse[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+
+  }
+
+
 }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { retry } from 'rxjs';
 import { LandingBoxResponse, LandingBoxesResponse } from 'src/app/models/LandingComponent.model';
+import { LandingElementResponse } from 'src/app/models/LandingElement.model';
 import { BoxElementService } from 'src/app/services/box-element.service';
 import { BoxesElementService } from 'src/app/services/boxes-element.service';
 
@@ -13,6 +14,7 @@ export class PageBoxesComponent implements OnInit{
 
   @Input() pageId:number =1;
   @Input()subcomponentId!:number |string;
+  @Input() elements!: LandingElementResponse[];
   boxes:LandingBoxResponse[]=[];
   
   constructor(

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { retry } from 'rxjs';
 import { LandingContainerResponse } from 'src/app/models/LandingComponent.model';
+import { LandingElementResponse } from 'src/app/models/LandingElement.model';
 import { ContainerService } from 'src/app/services/container.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class PageContainersComponent implements OnInit{
 
   @Input() pageId:number =1;
   @Input() componentId!:number |string;
+  @Input() elements!: LandingElementResponse[];
   containers:LandingContainerResponse[]=[];
   
   constructor(

@@ -1,16 +1,22 @@
+
+
 <div [ngSwitch]="dataElemento.tag"  
+    cdkDropList (cdkDropListDropped)="drop($event)" 
+    [cdkDropListData]="elements"
 
-        *ngFor="let dataElemento of elements" 
-        [ngStyle]="{
-            'width':'100%',
-            'display': boxWidth,
-            'align-items': boxAlign,
-            'flex-direction': boxDirection,
-            'justify-content':boxJustify
-        }"
-        >
+    *ngFor="let dataElemento of elements" 
+    [ngStyle]="{
+        'width':'100%',
+        'display': boxWidth,
+        'align-items': boxAlign,
+        'flex-direction': boxDirection,
+        'justify-content':boxJustify
+    }"
+>
 
-                                <h1 *ngSwitchCase="'h1'" [ngStyle]="{
+                                <h1 cdkDrag
+                                id={{dataElemento.id}}
+                                *ngSwitchCase="'h1'" [ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px',
                                     'font-family': dataElemento.fontfamily,
                                     'color': dataElemento.color,
@@ -28,7 +34,9 @@
                                 {{dataElemento.content}}
                                 </h1>
 
-                                <h2 *ngSwitchCase="'h2'"[ngStyle]="{
+                                <h2 cdkDrag
+                                id={{dataElemento.id}}
+                                *ngSwitchCase="'h2'"[ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px',
                                     'font-family': dataElemento.fontfamily,
                                     'color': dataElemento.color,
@@ -46,7 +54,9 @@
                                 {{dataElemento.content}}
                                 </h2>
 
-                                <h3 *ngSwitchCase="'h3'"[ngStyle]="{
+                                <h3 cdkDrag
+                                id={{dataElemento.id}}
+                                *ngSwitchCase="'h3'"[ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px',
                                     'font-family': dataElemento.fontfamily,
                                     'color': dataElemento.color,
@@ -64,7 +74,9 @@
                                 {{dataElemento.content}}
                                 </h3>
 
-                                <p *ngSwitchCase="'p'" [ngStyle]="{
+                                <p cdkDrag
+                                id={{dataElemento.id}}
+                                *ngSwitchCase="'p'" [ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px' ,
                                     'font-weight': dataElemento.fontweight,
                                     'line-height': dataElemento.lineheight +'px',
@@ -84,7 +96,9 @@
                                     {{dataElemento.content}}
                                 </p>
 
-                                <button *ngSwitchCase="'button'" [ngStyle]="{
+                                <button cdkDrag
+                                id={{dataElemento.id}}
+                                *ngSwitchCase="'button'" [ngStyle]="{
                                     'width':dataElemento.width,
                                     'padding-top': dataElemento.paddingtop +'px',
                                     'padding-bottom':dataElemento.paddingbottom +'px',
@@ -104,7 +118,9 @@
                                     {{dataElemento.content}}
                                 </button>
 
-                                <img  *ngSwitchCase="'img'" [src]="dataElemento.content" 
+                                <img  cdkDrag
+                                id={{dataElemento.id}}
+                                *ngSwitchCase="'img'" [src]="dataElemento.content" 
                                 [ngStyle]="{
                                     'width':dataElemento.width,
                                     'border-color':dataElemento.bordercolor,
@@ -123,7 +139,9 @@
                                     'margin-right': dataElemento.marginright  +'px'
                                     
                                 }" >
-                                <ul *ngSwitchCase="'ul'" [ngStyle]="{
+                                <ul cdkDrag
+                                id={{dataElemento.id}}
+                                *ngSwitchCase="'ul'" [ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px',
                                     'font-weight':dataElemento.fontweight +'px',
                                     'padding-top': dataElemento.paddingtop + 'px',
@@ -137,7 +155,9 @@
 
                                 
 
-                                <iframe *ngSwitchCase="'video'" 
+                                <iframe cdkDrag
+                                id={{dataElemento.id}}
+                                *ngSwitchCase="'video'" 
 
                                 [src]="dataElemento.video"
 

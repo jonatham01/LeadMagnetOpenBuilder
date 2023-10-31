@@ -1,25 +1,34 @@
+<div class="w-full " cdkDropListGroup>
 
-    <app-page-containers
-        id={{component.id}}
-        [pageId]="pageId"
-        [componentId]="component.id"
-        *ngFor ="let component of components"
-        [ngStyle]="{
-            'padding-top': component.paddingtop +'px',
-            'padding-bottom': component.paddingbottom +'px',
-            'padding-left': component.paddingleft +'px',
-            'padding-right': component.paddingright +'px',
-    
-            'margin-top': component.margintop  +'px',
-            'margin-bottom': component.marginbottom +'px',
-            'margin-left': component.marginleft +'px',
-            'margin-right': component.marginright  +'px',
-    
-            'display': component.display,
-            'justify-content': component.justifycontent,
-            'background-color': component.backgroundcolor
-        }"
-        class="w-full"
+    <div
+        cdkDropList (cdkDropListDropped)="drop($event)" 
+        [cdkDropListData]="components"
+        class="w-full hover:pt-4 focus:pt-4 hover:bg-slate-700 focus:bg-slate-700 "
+    >
+        <app-page-containers
+            
+            id={{component.id}}
+            [pageId]="pageId"
+            [componentId]="component.id"
+            [elements]="elements"
+            *ngFor ="let component of components"
+            [ngStyle]="{
+                'padding-top': component.paddingtop +'px',
+                'padding-bottom': component.paddingbottom +'px',
+                'padding-left': component.paddingleft +'px',
+                'padding-right': component.paddingright +'px',
+        
+                'margin-top': component.margintop  +'px',
+                'margin-bottom': component.marginbottom +'px',
+                'margin-left': component.marginleft +'px',
+                'margin-right': component.marginright  +'px',
+        
+                'display': component.display,
+                'justify-content': component.justifycontent,
+                'background-color': component.backgroundcolor
+            }"
         >
-    </app-page-containers>
+        </app-page-containers>
+    </div>
+</div>
 

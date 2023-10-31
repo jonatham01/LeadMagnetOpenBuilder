@@ -31,6 +31,7 @@ import { PageBoxesComponent } from './pages-edit/page-boxes/page-boxes.component
 import { PageBoxComponent } from './pages-edit/page-box/page-box.component';
 import { PageElementsComponent } from './pages-edit/page-elements/page-elements.component';
 import { PageElementComponent } from './pages-edit/page-element/page-element.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
@@ -69,6 +70,7 @@ import { PageElementComponent } from './pages-edit/page-element/page-element.com
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
+    DragDropModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
