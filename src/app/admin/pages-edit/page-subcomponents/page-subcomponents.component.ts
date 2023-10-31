@@ -13,7 +13,6 @@ export class PageSubcomponentsComponent implements OnInit{
 
   @Input() pageId:number =1;
   @Input()containerId!:number |string;
-  @Input() elements!: LandingElementResponse[];
   boxes:LandingBoxesResponse[]=[];
   
   constructor(

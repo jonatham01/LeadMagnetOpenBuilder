@@ -1,9 +1,7 @@
 
 
 <div [ngSwitch]="dataElemento.tag"  
-    cdkDropList (cdkDropListDropped)="drop($event)" 
-    [cdkDropListData]="elements"
-
+    class="hover:py-4 focus:py-4 hover:bg-slate-700 focus:bg-slate-700 "
     *ngFor="let dataElemento of elements" 
     [ngStyle]="{
         'width':'100%',

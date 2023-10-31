@@ -14,7 +14,7 @@ export class PageBoxesComponent implements OnInit{
 
   @Input() pageId:number =1;
   @Input()subcomponentId!:number |string;
-  @Input() elements!: LandingElementResponse[];
+
   boxes:LandingBoxResponse[]=[];
   
   constructor(

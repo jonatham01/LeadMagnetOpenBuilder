@@ -13,7 +13,6 @@ export class PageContainersComponent implements OnInit{
 
   @Input() pageId:number =1;
   @Input() componentId!:number |string;
-  @Input() elements!: LandingElementResponse[];
   containers:LandingContainerResponse[]=[];
   
   constructor(

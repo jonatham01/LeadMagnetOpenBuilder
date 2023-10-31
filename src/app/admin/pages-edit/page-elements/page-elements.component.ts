@@ -19,8 +19,7 @@ export class PageElementsComponent implements OnInit{
   @Input()boxAlign:string | undefined="";
   @Input()boxDirection:string | undefined="";
   @Input()boxJustify:string | undefined="";
-  @Input() elements!: LandingElementResponse[];
-  elementsFiltered:LandingElementResponse[]=[];
+  elements:LandingElementResponse[]=[];
   videos:any[]=[]
 
   
@@ -32,8 +31,6 @@ export class PageElementsComponent implements OnInit{
 
   ngOnChanges(changes: SimpleChanges) {
     if(this.boxId){
-      this.elements = this.elements.filter((data: { componentId: string | number; })=>{ return data.componentId == this.boxId})
-      /*
       this.elementService.findAllByIdPage(this.pageId).pipe(retry(3))
       .subscribe( data => {
         this.elements = data.filter((data: { componentId: string | number; })=>{ return data.componentId == this.boxId})
@@ -45,7 +42,7 @@ export class PageElementsComponent implements OnInit{
           }
           else{return element}
         })
-      });*/
+      });
     };
     }
   
