@@ -37,11 +37,10 @@ export class PageElementsComponent implements OnInit{
         .map((element: { tag: string; content: string; })=>{
 
           if(element.tag=="video"){
-            console.log(element.content)
             return {...element,video:this._sanitizer.bypassSecurityTrustResourceUrl(element.content)}
           }
           else{return element}
-        })
+        }).sort((a: { ide: number; }, b: { ide: number; }) => a.ide - b.ide)
       });
     };
     }
@@ -49,12 +48,6 @@ export class PageElementsComponent implements OnInit{
 
   returnListaElementos(lista:LandingElementResponse){
     return lista.content.split(',');
-  }
-
-  toVideo(video:string){
-    var urlvideo=this._sanitizer.bypassSecurityTrustResourceUrl(video);
-    console.log(urlvideo);
-    return urlvideo;
   }
 
   drop(event: CdkDragDrop<LandingElementResponse[]>) {

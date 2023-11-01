@@ -1,7 +1,7 @@
 
 
 <div [ngSwitch]="dataElemento.tag"  
-    class="hover:py-4 focus:py-4 hover:bg-slate-700 focus:bg-slate-700 "
+    class="hover:py-4 focus:py-4 hover:border-spacing-2 hover:border-red-600  hover:border-solid"
     *ngFor="let dataElemento of elements" 
     [ngStyle]="{
         'width':'100%',
@@ -12,7 +12,7 @@
     }"
 >
 
-                                <h1 cdkDrag
+                                <h1 
                                 id={{dataElemento.id}}
                                 *ngSwitchCase="'h1'" [ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px',
@@ -32,7 +32,7 @@
                                 {{dataElemento.content}}
                                 </h1>
 
-                                <h2 cdkDrag
+                                <h2 
                                 id={{dataElemento.id}}
                                 *ngSwitchCase="'h2'"[ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px',
@@ -52,7 +52,7 @@
                                 {{dataElemento.content}}
                                 </h2>
 
-                                <h3 cdkDrag
+                                <h3 
                                 id={{dataElemento.id}}
                                 *ngSwitchCase="'h3'"[ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px',
@@ -72,7 +72,7 @@
                                 {{dataElemento.content}}
                                 </h3>
 
-                                <p cdkDrag
+                                <p 
                                 id={{dataElemento.id}}
                                 *ngSwitchCase="'p'" [ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px' ,
@@ -94,7 +94,7 @@
                                     {{dataElemento.content}}
                                 </p>
 
-                                <button cdkDrag
+                                <button 
                                 id={{dataElemento.id}}
                                 *ngSwitchCase="'button'" [ngStyle]="{
                                     'width':dataElemento.width,
@@ -116,7 +116,7 @@
                                     {{dataElemento.content}}
                                 </button>
 
-                                <img  cdkDrag
+                                <img  
                                 id={{dataElemento.id}}
                                 *ngSwitchCase="'img'" [src]="dataElemento.content" 
                                 [ngStyle]="{
@@ -137,7 +137,7 @@
                                     'margin-right': dataElemento.marginright  +'px'
                                     
                                 }" >
-                                <ul cdkDrag
+                                <ul 
                                 id={{dataElemento.id}}
                                 *ngSwitchCase="'ul'" [ngStyle]="{
                                     'font-size': dataElemento.fontsize +'px',
@@ -153,7 +153,7 @@
 
                                 
 
-                                <iframe cdkDrag
+                                <iframe 
                                 id={{dataElemento.id}}
                                 *ngSwitchCase="'video'" 
 
