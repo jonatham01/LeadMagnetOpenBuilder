@@ -21,6 +21,10 @@ export class PageElementsComponent implements OnInit{
   @Input()boxJustify:string | undefined="";
   elements:LandingElementResponse[]=[];
   videos:any[]=[]
+  elementsCounterActivated = true;
+  elementsBuilderActivated= false;
+  firstElement=1;
+  lastElement=1;
 
   
   constructor(
@@ -33,14 +37,20 @@ export class PageElementsComponent implements OnInit{
     if(this.boxId){
       this.elementService.findAllByIdPage(this.pageId).pipe(retry(3))
       .subscribe( data => {
-        this.elements = data.filter((data: { componentId: string | number; })=>{ return data.componentId == this.boxId})
+        
+        let elementsFiltered = data.filter((data: { componentId: string | number; })=>{ return data.componentId == this.boxId})
         .map((element: { tag: string; content: string; })=>{
 
           if(element.tag=="video"){
             return {...element,video:this._sanitizer.bypassSecurityTrustResourceUrl(element.content)}
           }
           else{return element}
-        }).sort((a: { ide: number; }, b: { ide: number; }) => a.ide - b.ide)
+        }).sort((a: { ide: number; }, b: { ide: number; }) => a.ide - b.ide);
+
+        this.elements =elementsFiltered;
+        this.firstElement = elementsFiltered[0].ide;
+        this.lastElement = elementsFiltered[elementsFiltered.length - 1].ide;
+       
       });
     };
     }
