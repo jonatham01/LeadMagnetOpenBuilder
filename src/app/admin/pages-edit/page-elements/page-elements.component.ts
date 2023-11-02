@@ -3,6 +3,7 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { retry } from 'rxjs';
 import { LandingElementResponse } from 'src/app/models/LandingElement.model';
+import { EditPageService } from 'src/app/services/edit-page.service';
 import { LandingElementService } from 'src/app/services/landing-element.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class PageElementsComponent implements OnInit{
   @Input()boxJustify:string | undefined="";
   elements:LandingElementResponse[]=[];
   videos:any[]=[]
-  elementsCounterActivated = true;
+  elementsCounterActivated = false;
   elementsBuilderActivated= false;
   firstElement=1;
   lastElement=1;
@@ -30,6 +31,7 @@ export class PageElementsComponent implements OnInit{
   constructor(
     private elementService:LandingElementService,
     private _sanitizer: DomSanitizer,
+    private editPageService:EditPageService,
   ){}
   ngOnInit(): void {}
 
@@ -50,14 +52,17 @@ export class PageElementsComponent implements OnInit{
         this.elements =elementsFiltered;
         this.firstElement = elementsFiltered[0].ide;
         this.lastElement = elementsFiltered[elementsFiltered.length - 1].ide;
-       
       });
     };
     }
   
-
   returnListaElementos(lista:LandingElementResponse){
     return lista.content.split(',');
+  }
+  activeEditPage(){
+    this.editPageService.element$.subscribe(data=> console.log(data));
+    this.elementsCounterActivated= true;
+
   }
 
   drop(event: CdkDragDrop<LandingElementResponse[]>) {

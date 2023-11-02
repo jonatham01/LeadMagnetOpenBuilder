@@ -26,7 +26,10 @@
             }"
         >
 
-            <div class="relative top-1 w-full  " >
+            <div 
+            *ngIf="elementsCounterActivated"
+            class="relative top-1 w-full  " 
+            >
                 <p class="flex w-min rounded-full px-2 bg-orange-600 text-white">
                     {{dataElemento.ide}}
                 </p>
