@@ -9,48 +9,58 @@ import { NewElementPageService } from 'src/app/services/new-element-page.service
 export class PageElementsCreatorComponent {
   
   showElementBuilder =false;
+  title=false;
+  text=false;
+  image=false;
+  video=false;
+  list=false;
+  icon=false;
+  socialMedia=false;
+  form=false;
+  graph=false;
 
   constructor(
     private elementsCreator:NewElementPageService ,
   ){}
     toInitCreator(){
       this.elementsCreator.showCounters();
+      this.showElementBuilder = true;
     }
     toTittleBuilder(){
-      this.elementsCreator.showCounters()
-      this.showElementBuilder = true;
+      this.toInitCreator()
+      this.title = true;
     }
     toTextBuilder(){
-      this.elementsCreator.showCounters();
-      this.showElementBuilder = true;
+      this.toInitCreator()
+      this.text = true;
     }
     toImageBuilder(){
-      this.elementsCreator.showCounters();
-      this.showElementBuilder = true;
+      this.toInitCreator()
+      this.image = true;
     }
     toVideoBuilder(){
-      this.elementsCreator.showCounters();
-      this.showElementBuilder = true;
+      this.toInitCreator()
+      this.image=true;
     }
     toListBuilder(){
-      this.elementsCreator.showCounters();
-      this.showElementBuilder = true;
+      this.toInitCreator()
+      this.list= true;
     }
-    toIcontBuilder(){
-      this.elementsCreator.showCounters();
-      this.showElementBuilder = true;
+    toIconBuilder(){
+      this.toInitCreator()
+      this.icon = true;
     }
     toNetworkBuilder(){
-      this.elementsCreator.showCounters();
-      this.showElementBuilder = true;
+      this.toInitCreator()
+      this.socialMedia = true;
     }
     toFormBuilder(){
-      this.elementsCreator.showCounters();
-      this.showElementBuilder = true;
+      this.toInitCreator()
+      this.form = true;
     }
     toGraphBuilder(){
-      this.elementsCreator.showCounters();
-      this.showElementBuilder = true;
+      this.toInitCreator()
+      this.graph = true;
     }
 
 }

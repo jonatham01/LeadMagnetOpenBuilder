@@ -1,28 +1,77 @@
-<p (click)="toTittleBuilder()" class="p-10 border-white border-solid border-2 text-white" >
+<p *ngIf="!showElementBuilder" 
+    (click)="toTittleBuilder()" 
+    class="p-10 border-white border-solid border-2 text-white" >
     Titulo
 </p>
 
-<p (click)="toInitCreator()" 
-class="p-10 border-white border-solid border-2 text-white">
-Texto</p>
+<app-title-element *ngIf="title"> </app-title-element>
 
-<p (click)="toInitCreator()" 
-class="p-10 border-white border-solid border-2 text-white">
-Image
+<p *ngIf="!showElementBuilder" 
+    (click)="toTextBuilder()" 
+    class="p-10 border-white border-solid border-2 text-white">
+    Texto
 </p>
 
-<p (click)="toInitCreator()" 
-class="p-10 border-white border-solid border-2 text-white">
-    Video
+<app-text-element *ngIf="text"></app-text-element>
+
+
+<p *ngIf="!showElementBuilder" 
+    (click)="toImageBuilder()" 
+    class="p-10 border-white border-solid border-2 text-white">
+    Image
 </p>
 
-<p (click)="toInitCreator()" 
-class="p-10 border-white border-solid border-2 text-white">
-Lista
+<app-image-element *ngIf="image"></app-image-element>
+
+<p *ngIf="!showElementBuilder" 
+    (click)="toVideoBuilder()" 
+    class="p-10 border-white border-solid border-2 text-white">
+        Video
 </p>
 
-<p class="p-10 border-white border-solid border-2 text-white">Icono</p>
-<p class="p-10 border-white border-solid border-2 text-white">Redes</p>
-<p class="p-10 border-white border-solid border-2 text-white">Formulario</p>
-<p class="p-10 border-white border-solid border-2 text-white">Encuesta</p>
-<p class="p-10 border-white border-solid border-2 text-white">Grafica</p>
+<app-video-element *ngIf="video"></app-video-element>
+
+<p *ngIf="!showElementBuilder"  
+    (click)="toListBuilder()" 
+    class="p-10 border-white border-solid border-2 text-white">
+    Lista
+</p>
+
+<app-list-element *ngIf="list"></app-list-element>
+
+<p *ngIf="!showElementBuilder"  
+    (click)="toIconBuilder()" 
+    class="p-10 border-white border-solid border-2 text-white">
+    Icono
+</p>
+
+<app-icon-element *ngIf="icon"></app-icon-element>
+
+<p *ngIf="!showElementBuilder" 
+    (click)="toNetworkBuilder()" 
+    class="p-10 border-white border-solid border-2 text-white">
+    Redes
+</p>
+
+<app-social-media-element *ngIf="socialMedia"></app-social-media-element>
+
+
+<p *ngIf="!showElementBuilder" 
+    class="p-10 border-white border-solid border-2 text-white">
+    Formulario
+</p>
+
+<app-form-element *ngIf="form"></app-form-element>
+
+<p *ngIf="!showElementBuilder"  
+    class="p-10 border-white border-solid border-2 text-white">
+    Encuesta
+</p>
+
+<p *ngIf="!showElementBuilder"
+    (click)="toGraphBuilder()" 
+    class="p-10 border-white border-solid border-2 text-white">
+    Grafica
+</p>
+
+<app-graph-element *ngIf="graph"></app-graph-element>
