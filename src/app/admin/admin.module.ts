@@ -32,6 +32,16 @@ import { PageBoxComponent } from './pages-edit/page-box/page-box.component';
 import { PageElementsComponent } from './pages-edit/page-elements/page-elements.component';
 import { PageElementComponent } from './pages-edit/page-element/page-element.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { PageElementsCreatorComponent } from './pages-edit/page-widgets/page-elements-creator/page-elements-creator.component';
+import { TitleElementComponent } from './pages-edit/page-widgets/page-elements-creator/title-element/title-element.component';
+import { TextElementComponent } from './pages-edit/page-widgets/page-elements-creator/text-element/text-element.component';
+import { ImageElementComponent } from './pages-edit/page-widgets/page-elements-creator/image-element/image-element.component';
+import { VideoElementComponent } from './pages-edit/page-widgets/page-elements-creator/video-element/video-element.component';
+import { ListElementComponent } from './pages-edit/page-widgets/page-elements-creator/list-element/list-element.component';
+import { IconElementComponent } from './pages-edit/page-widgets/page-elements-creator/icon-element/icon-element.component';
+import { SocialMediaElementComponent } from './pages-edit/page-widgets/page-elements-creator/social-media-element/social-media-element.component';
+import { GraphElementComponent } from './pages-edit/page-widgets/page-elements-creator/graph-element/graph-element.component';
+import { FormElementComponent } from './pages-edit/page-widgets/page-elements-creator/form-element/form-element.component';
 
 
 
@@ -62,7 +72,17 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     PageBoxesComponent,
     PageBoxComponent,
     PageElementsComponent,
-    PageElementComponent
+    PageElementComponent,
+    PageElementsCreatorComponent,
+    TitleElementComponent,
+    TextElementComponent,
+    ImageElementComponent,
+    VideoElementComponent,
+    ListElementComponent,
+    IconElementComponent,
+    SocialMediaElementComponent,
+    GraphElementComponent,
+    FormElementComponent
   ],
   imports: [
     CommonModule,
