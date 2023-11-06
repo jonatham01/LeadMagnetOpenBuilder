@@ -11,9 +11,19 @@ export class NewElementPageService {
   private element = new BehaviorSubject<LandingElementResponse | null>(null);
   element$ = this.element.asObservable();
 
+  private activeCounter = new BehaviorSubject<boolean>(false);
+  activeCounter$ = this.activeCounter.asObservable();
+
   constructor(
     private http: HttpClient,
     ) { }
+
+    showCounters(){
+      this.activeCounter.next(true);
+    }
+    hideCounters(){
+      this.activeCounter.next(false);
+    }
 
     newElement(activeElement:LandingElementResponse){
         this.element.next(activeElement);
